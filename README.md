@@ -1,7 +1,9 @@
 # TPWT
+
 ---
+
 ## info
-Dual plane wave phase velocity inversion in SH area.
+Two plane wave tomography inversion of phase velocity an area.
 
 Here is my backup.
 
@@ -10,15 +12,20 @@ the processing flow, some automated scripts that
 process the data in the flow,
 and some flashes of light.
 
-Not public yet.
-## DATA
+Not ready to public yet.
+## DATA to SAC
+Using `get_cut_event.py` to create event.lst and event.cat from two event catalog downloaded from website and to cut event from data.
+
+Using `get_SAC.py` to get SAC for tpwt from cut event directory.
+
+More information see bellow.
 ### Raw Data
 Seismic data from stations in the area.
 
 My first-hand data is in `.miniseed` format.
 
 ### Preprocessing
-Use `'sac'` to process and finally get only Z component, filtered 20-150s, 1Hz `.sac` data.
+Use `'sac'` to process and finally get only Z component, filtered 20-150s(optional because it has been filtered in the step of qu yi qi xiang ying, just make sure the frequencies is wide enough for the periods), 1Hz `.sac` data.
 ### Cut by event
 I need to cut data by events from 30&deg; to 120&deg; and only need data within 3 hours after the earthquakes.
 
@@ -58,7 +65,7 @@ I will get some folders named `202112301313` in which there are some `.sac` file
 
 And those folders are in the `Out` set by me.
 
-### Sac File Rename and Modify Head File
+### Sac File Rename and Modify Head
 
 Now I'm in `Out`.I will use:
 - event_depth.cat: event lo la dp
@@ -70,9 +77,10 @@ and change naming format of the sac files to be `eventtime.station.LHZ.sac`.
 `bash sac_ch_rename.sh`
 
 Now sac files will change from `XX.station.00.XXZ.X.eventtime.sac`
-to `eventtime.station.LHZ.sac`.And `dist` will appear in head file.
+to `eventtime.station.LHZ.sac`. And `dist` will appear in head file.
 
 At this point, my data preparation is basically complete.
+
 ## binuse
 
 1. `TPWT/bin`
@@ -108,7 +116,23 @@ At this point, my data preparation is basically complete.
 2. sensitivity.bash
 `TPWT/utils/sens_prog/sensitivity.bash`
 
-## 01.bash
+## python scripts
+I have python scripts as interface to run tpwt.
+
+It can do work flow from getting SAC from data (after pz and delta is 5Hz) to run tpwt and image.
+
+`param.json` is the file including parameters.
+
+### tpwt_1.py
+Works like `01.bash`.
+
+### tpwt_6_check.py
+Not complete yet.
+### tpwt all
+I'm going to push `tpwt_all.py` which can do all test parameters.
+
+## bash scripts
+### 01.bash
 
 Generate reference phase velocities for each pair of event and station, 
 then extract dispersion curves for each sac file.
@@ -142,7 +166,7 @@ Prepare files:
 	`filelist`, `flag_SNR`, `flag_aftan`, `param.dat`, `step.txt`, `temp.dat`
 `bash 01.bash`
 
-## 02.bash
+### 02.bash
 
 When I run `02.bash`, I unfortunately find that
 the Z component name in sac file must be `.LHZ.`.
@@ -171,7 +195,7 @@ And I should adjust parameters otherwise `snr_err` will appear.
 
 	`{event}.ph.txt` will be used in 02.bash self.
 
-## 03.bash
+### 03.bash
 1. use
 - `wc`
 - `sdiff`
@@ -184,7 +208,7 @@ And I should adjust parameters otherwise `snr_err` will appear.
 3. generate
 - `SAC/`
 	`tempeq` and `eqlistper`: total number of stations to one event and the order number of the event.
-## 04.bash
+### 04.bash
 1. use
 - `creatgridnode_TPWT` : create fan yan wang ge in `invrsnodes`.
 - `avgvel` : average v
@@ -208,8 +232,13 @@ And I should adjust parameters otherwise `snr_err` will appear.
 - ``
 
 - ``
-## 05.bash
+### 05.bash
 repeat 04, chose pham.V3
+
+Result is in `new_2d` directory.
+
+### 06.bash
+It's check board.
 
 ---
 
