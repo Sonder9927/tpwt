@@ -25,7 +25,10 @@ Seismic data from stations in the area.
 My first-hand data is in `.miniseed` format.
 
 ### Preprocessing
-Use `'sac'` to process and finally get only Z component, filtered 20-150s(optional because it has been filtered in the step of qu yi qi xiang ying, just make sure the frequencies is wide enough for the periods), 1Hz `.sac` data.
+Use `'sac'` to process and finally get only Z component, filtered 20-150s
+(optional because it has been filtered in the step of removing instrument response,
+just make sure the frequencies is wide enough for the periods), 1Hz `.sac` data.
+
 ### Cut by event
 I need to cut data by events from 30&deg; to 120&deg; and only need data within 3 hours after the earthquakes.
 
