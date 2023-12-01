@@ -1,0 +1,16 @@
+# derivative
+_lowlevel.*
+
+# default
+# python generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+# Rust
+target/
+
+# venv
+.venv
