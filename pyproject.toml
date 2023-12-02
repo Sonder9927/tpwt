@@ -19,3 +19,9 @@ dev-dependencies = ["pip>=23.3.1"]
 python-source = "python"
 module-name = "tpwt._lowlevel"
 features = ["pyo3/extension-module"]
+
+[project.scripts]
+# tpwt-main = "tpwt:main"
+
+[tool.rye.scripts]
+temp = "python temp.py"
