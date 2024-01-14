@@ -1,9 +1,9 @@
 [project]
 name = "tpwt"
-version = "0.2.0"
-description = "tpwt in python with rust"
+version = "0.1.0"
+description = "tpwt program in python with rust"
 authors = [{ name = "Sonder Merak", email = "merak19981999@gmail.com" }]
-dependencies = ["icecream>=2.1.3"]
+dependencies = ["duty>=1.1.0"]
 readme = "README.md"
 requires-python = ">= 3.12"
 
@@ -13,15 +13,48 @@ build-backend = "maturin"
 
 [tool.rye]
 managed = true
-dev-dependencies = ["pip>=23.3.1"]
+dev-dependencies = [
+    "pip>=23.3.2",
+]
 
 [tool.maturin]
 python-source = "python"
-module-name = "tpwt._lowlevel"
+module-name = "rye_rp._lowlevel"
 features = ["pyo3/extension-module"]
 
 [project.scripts]
-# tpwt-main = "tpwt:main"
+main-sc = "rye_rp:__main__"
 
 [tool.rye.scripts]
-temp = "python temp.py"
+docs = "duty docs"
+
+[tool.ruff]
+extend-select = [
+  "B",
+  "BLE",
+  "C4",
+  "E",
+  "ERA",
+  "I",
+  "ICN",
+  "INP",
+  "ISC",
+  "N",
+  "NPY",
+  "PGH",
+  "PIE",
+  # "PTH",
+  "Q",
+  "RET",
+  "RSE",
+  "RUF",
+  "S",
+  "SIM",
+  "T20",
+  "TCH",
+  "TID",
+  "YTT",
+]
+ignore = ["E402", "B905", "N818", "S101"]
+show-fixes = true
+target-version = "py312"

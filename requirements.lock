@@ -7,9 +7,10 @@
 #   all-features: false
 
 -e file:.
-asttokens==2.4.1
+ansimarkup==1.5.0
 colorama==0.4.6
-executing==2.0.1
-icecream==2.1.3
-pygments==2.17.2
-six==1.16.0
+duty==1.1.0
+failprint==1.0.2
+jinja2==3.1.3
+markupsafe==2.1.3
+ptyprocess==0.7.0

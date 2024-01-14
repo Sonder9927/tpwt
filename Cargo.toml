@@ -11,7 +11,7 @@ crate-type = ["cdylib"]
 [dependencies]
 pyo3 = { version = "0.20", features = ["extension-module"] }
 ndarray = { version = "0.15", features = ["rayon", "serde"] }
-polars = { version = "0.35", features = [
+polars = { version = "0.36", features = [
   "lazy",
   "ndarray",
   "serde",
