@@ -15,7 +15,7 @@ extern crate fstrings;
 /// Prints a message.
 #[pyfunction]
 fn hello() -> PyResult<String> {
-    Ok("Hello from tpwt!".into())
+    Ok("Hello tpwt from rust!".into())
 }
 
 /// A Python module implemented in Rust.
@@ -28,4 +28,3 @@ fn _lowlevel(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_class::<Region>()?;
     Ok(())
 }
-

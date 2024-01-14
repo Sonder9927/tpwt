@@ -1,0 +1,4 @@
+site_name: tpwt
+nav:
+  - Home: index.md
+theme: material

@@ -1,6 +1,9 @@
 # temp files
 temp*
 
+# docs
+site/
+
 # derivative
 _lowlevel.*
 
