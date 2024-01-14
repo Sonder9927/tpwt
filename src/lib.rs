@@ -15,7 +15,7 @@ extern crate fstrings;
 /// Prints a message.
 #[pyfunction]
 fn hello() -> PyResult<String> {
-    Ok("Hello tpwt from rust!".into())
+    Ok("Hello tpwt from Rust!".into())
 }
 
 /// A Python module implemented in Rust.

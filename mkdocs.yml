@@ -1,4 +1,15 @@
 site_name: tpwt
+theme: material
+
 nav:
   - Home: index.md
-theme: material
+  - python: python.md
+
+plugins:
+- search
+- mkdocstrings:
+    handlers:
+      python:
+        paths: [python.tpwt]
+        options:
+          show_source: false

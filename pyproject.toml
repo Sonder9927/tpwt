@@ -8,6 +8,10 @@ dependencies = [
     "pandas>=2.1.4",
     "mkdocs>=1.5.3",
     "mkdocs-material>=9.5.3",
+    "obspy>=1.4.0",
+    "numpy>=1.26.3",
+    "scipy>=1.11.4",
+    "mkdocstrings-python>=1.8.0",
 ]
 readme = "README.md"
 requires-python = ">= 3.12"
@@ -28,10 +32,10 @@ module-name = "tpwt._lowlevel"
 features = ["pyo3/extension-module"]
 
 [project.scripts]
-hello = "tpwt:hello()"
+hello = "tpwt:hello"
 
 [tool.rye.scripts]
-docs = "duty docs"
+docs = "rye run mkdocs build"
 
 [tool.ruff]
 extend-select = [

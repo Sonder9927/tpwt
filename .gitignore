@@ -1,6 +1,8 @@
 # temp files
 temp*
 
+data/txt
+
 # docs
 site/
 

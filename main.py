@@ -1,9 +1,9 @@
-from tpwt import load_param
+from tpwt import rs
 from icecream import ic
 
 
 def main():
-    param = load_param("param.json")
+    param = rs.load_param("param.jsonc")
     ic(param.target("sac"))
 
 
