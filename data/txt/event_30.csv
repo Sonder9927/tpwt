@@ -1,0 +1,172 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-01-02T18:23:53.135Z,35.8098,141.249,31,5.7,mww,,61,0.912,1.03,us,us70006ttf,2020-03-21T17:13:04.040Z,"38 km ENE of Hasaki, Japan",earthquake,5.9,1.8,0.066,22,reviewed,us,us
+2020-03-19T13:52:55.249Z,20.7035,143.5362,10,5.5,mww,,109,7.188,0.81,us,us70008c70,2022-03-05T03:25:22.728Z,"Mariana Islands region",earthquake,10.9,1.9,0.044,50,reviewed,us,us
+2020-03-20T03:03:13.676Z,46.0479,93.9973,10,5.5,mww,,24,8.125,0.95,us,us70008cmt,2020-06-06T20:53:55.040Z,"178 km WSW of Altai, Mongolia",earthquake,7,1.7,0.071,19,reviewed,us,us
+2020-04-10T16:44:56.425Z,20.4677,122.1097,160,5.9,mww,,25,2.527,1.11,us,us70008tc8,2020-06-30T14:02:52.040Z,"14 km E of Basco, Philippines",earthquake,7.4,1.9,0.044,50,reviewed,us,us
+2020-04-16T11:45:23.960Z,22.8004,94.0292,10,5.9,mww,,25,0.426,0.93,us,us70008xhp,2022-03-10T05:13:15.512Z,"38 km ESE of Falam, Myanmar",earthquake,6.3,1.7,0.055,32,reviewed,us,us
+2020-04-18T08:25:37.052Z,27.1264,140.1349,453,6.6,mww,,28,1.827,0.85,us,us70008z89,2020-07-09T14:31:24.040Z,"Bonin Islands, Japan region",earthquake,8.6,2,0.045,48,reviewed,us,us
+2020-04-18T09:24:18.247Z,27.2034,140.0712,473.69,5.7,mww,,28,1.886,0.99,us,us70008za4,2020-07-09T14:31:25.040Z,"Bonin Islands, Japan region",earthquake,9,4.1,0.08,15,reviewed,us,us
+2020-04-19T20:39:05.639Z,38.8953,142.0049,38,6.3,mww,,34,2.025,1.18,us,us7000903m,2022-12-11T22:37:10.101Z,"31 km SE of ?funato, Japan",earthquake,6.5,1.7,0.05,39,reviewed,us,us
+2020-05-03T11:54:24.575Z,31.404,128.8393,10,5.9,mww,,22,1.382,0.46,us,us700099b2,2020-07-18T21:57:31.040Z,"139 km WSW of Kushikino, Japan",earthquake,6.1,1.8,0.053,34,reviewed,us,us
+2020-05-04T13:07:48.414Z,35.6865,140.8749,42.42,5.6,mww,,100,0.593,0.68,us,us700099s8,2020-07-21T19:11:32.040Z,"6 km SE of Hasaki, Japan",earthquake,4.8,3.9,0.075,17,reviewed,us,us
+2020-05-10T23:58:33.700Z,36.3571,141.1273,31,5.8,mww,,26,0.767,0.69,us,us70009dus,2020-07-29T22:14:29.040Z,"49 km E of ?arai, Japan",earthquake,4.2,1.2,0.051,37,reviewed,us,us
+2020-05-30T18:13:48.078Z,42.4803,143.8087,89,5.6,mww,,35,1.862,0.92,us,us6000a2rt,2020-08-15T20:19:54.040Z,"69 km SE of Obihiro, Japan",earthquake,7,1.9,0.06,27,reviewed,us,us
+2020-06-13T15:51:24.069Z,28.8591,128.2713,165,6.6,mww,,18,2.015,1.04,us,us6000abcq,2020-08-22T19:14:49.040Z,"130 km WNW of Naze, Japan",earthquake,7.3,1.9,0.038,68,reviewed,us,us
+2020-06-21T22:40:52.633Z,23.1449,93.2856,10.84,5.6,mww,,23,0.578,0.64,us,us6000ag4u,2022-03-10T05:24:29.517Z,"22 km E of North Vanlaiphai, India",earthquake,4,3,0.068,21,reviewed,us,us
+2020-06-24T19:47:45.011Z,35.4711,141.0738,29.05,5.9,mww,,33,0.642,0.97,us,us7000aabt,2022-03-10T05:25:39.141Z,"36 km SE of Hasaki, Japan",earthquake,5.8,2.8,0.05,39,reviewed,us,us
+2020-07-06T12:58:04.288Z,21.0329,144.8578,125,5.5,mww,,34,5.828,0.73,us,us7000aiqf,2022-06-22T06:43:47.805Z,"Mariana Islands region",earthquake,3.9,1.9,0.063,24,reviewed,us,us
+2020-07-06T18:19:09.971Z,31.5275,138.1263,388.56,5.7,mww,,35,2.118,0.69,us,us7000aiyp,2020-09-11T22:14:21.040Z,"Izu Islands, Japan region",earthquake,6.8,4.2,0.071,19,reviewed,us,us
+2020-07-27T17:32:45.227Z,9.0183,126.2681,43.39,5.8,mww,,26,2.052,1.18,us,us6000b4ug,2022-03-10T05:30:11.616Z,"3 km N of La Paz, Philippines",earthquake,7.3,3.1,0.047,44,reviewed,us,us
+2020-07-30T00:35:56.884Z,30.6287,141.7721,14.25,5.8,mww,,15,2.986,0.84,us,us6000b6i4,2020-10-10T17:11:01.040Z,"Izu Islands, Japan region",earthquake,6.2,2.5,0.048,42,reviewed,us,us
+2020-07-31T06:06:41.589Z,8.5416,126.5987,28,5.7,mww,,32,1.777,0.97,us,us6000b7ai,2022-08-08T23:48:39.032Z,"34 km ENE of Hinatuan, Philippines",earthquake,8.2,1.9,0.052,36,reviewed,us,us
+2020-08-01T17:09:01.952Z,7.2932,124.1331,483,6.4,mww,,13,1.451,1.04,us,us6000b80p,2022-08-08T23:49:57.844Z,"11 km SW of Polloc, Philippines",earthquake,7.4,1.9,0.027,129,reviewed,us,us
+2020-08-12T22:32:38.305Z,19.8876,121.2803,10,5.5,mww,,27,2.921,0.56,us,us6000bdq1,2020-10-24T20:08:46.040Z,"95 km SW of Basco, Philippines",earthquake,6.9,1.8,0.057,30,reviewed,us,us
+2020-08-18T00:03:48.566Z,12.0257,124.1272,10,6.6,mww,,14,5.128,0.73,us,us6000bgbr,2022-03-13T02:31:00.914Z,"13 km E of San Pedro, Philippines",earthquake,7.1,1.6,0.06,27,reviewed,us,us
+2020-09-06T15:23:43.148Z,6.2693,125.8285,120,6.3,mww,,29,0.832,1.22,us,us7000biyd,2023-04-09T10:57:16.751Z,"17 km E of Talagutong, Philippines",earthquake,7.2,1.9,0.045,47,reviewed,us,us
+2020-09-12T02:44:11.224Z,38.7482,142.2446,34,6.1,mww,,47,2.232,0.97,us,us7000bm9m,2022-12-11T22:42:12.155Z,"58 km SE of ?funato, Japan",earthquake,5.7,1.7,0.057,30,reviewed,us,us
+2020-09-20T22:13:15.030Z,9.2643,126.6862,9,5.6,mww,,43,2.44,0.56,us,us7000bql2,2020-11-28T21:31:59.040Z,"54 km E of Cortes, Philippines",earthquake,6.8,1.4,0.069,20,reviewed,us,us
+2020-09-21T18:04:57.669Z,51.8569,103.4802,10,5.5,mww,,28,0.203,0.68,us,us6000bzek,2022-03-10T05:40:52.953Z,"21 km NW of Kultuk, Russia",earthquake,7.4,1.8,0.075,17,reviewed,us,us
+2020-10-03T09:31:31.262Z,33.4766,140.9412,28.85,5.8,mww,,15,1.01,0.77,us,us6000c54x,2020-12-12T22:28:37.040Z,"193 km SSE of Katsuura, Japan",earthquake,6.6,2.9,0.051,37,reviewed,us,us
+2020-10-04T18:16:53.824Z,13.6082,120.7526,121,5.6,mww,,25,3.931,0.89,us,us6000c5i4,2020-12-12T22:28:39.040Z,"14 km WSW of Tingloy, Philippines",earthquake,7.6,1.9,0.038,67,reviewed,us,us
+2020-10-10T17:38:00.765Z,24.6661,93.4997,53,5.5,mww,,22,0.849,0.65,us,us6000c7ce,2020-12-19T17:22:44.040Z,"33 km WNW of Moir?ng, India",earthquake,4.5,1.9,0.083,14,reviewed,us,us
+2020-11-06T08:56:38.063Z,40.9903,143.255,12,5.5,mww,,114,1.026,0.74,us,us7000cb99,2021-01-23T22:25:31.040Z,"157 km ENE of Hachinohe, Japan",earthquake,5.5,1.8,0.059,28,reviewed,us,us
+2020-11-07T01:10:32.071Z,25.71,143.6051,16,5.8,mww,,41,8.085,1,us,us7000cbni,2021-01-23T22:25:32.040Z,"Volcano Islands, Japan region",earthquake,3,1.7,0.05,38,reviewed,us,us
+2020-11-11T05:17:56.078Z,25.4713,142.75,10,5.7,mww,,44,1.695,0.91,us,us7000cd9a,2021-01-27T17:28:34.040Z,"Volcano Islands, Japan region",earthquake,6.9,1.7,0.063,24,reviewed,us,us
+2020-11-15T22:37:43.690Z,8.7572,126.2914,43,6,mww,,26,1.819,0.99,us,us7000cfes,2023-04-09T10:56:17.449Z,"5 km S of Marihatag, Philippines",earthquake,6.2,1.9,0.042,54,reviewed,us,us
+2020-11-22T10:05:53.849Z,36.5889,141.1105,33,5.5,mww,,86,0.823,0.72,us,us6000crfr,2022-02-16T09:35:16.987Z,"37 km ESE of Takahagi, Japan",earthquake,5.4,1.3,0.098,10,reviewed,us,us
+2020-11-30T22:54:34.601Z,48.2521,140.7971,589,6.4,mww,,26,1.854,0.94,us,us7000clbu,2021-11-16T05:35:29.475Z,"88 km SSE of Sovetskaya Gavan’, Russia",earthquake,6,1.9,0.04,60,reviewed,us,us
+2020-12-08T00:47:24.531Z,22.5204,144.7385,20,5.5,mww,,15,5.112,0.64,us,us7000cp05,2021-02-12T22:40:16.040Z,"Volcano Islands, Japan region",earthquake,2.5,1.8,0.053,34,reviewed,us,us
+2020-12-10T13:19:58.682Z,24.7818,122.0243,71,6.1,mww,,18,0.515,0.76,us,us7000cpqz,2022-03-10T05:49:46.366Z,"27 km E of Yilan, Taiwan",earthquake,3.8,1.6,0.061,26,reviewed,us,us
+2020-12-12T07:18:54.231Z,40.1213,142.0551,44,5.5,mww,,69,1.008,0.66,us,us7000cqhy,2021-02-20T16:11:27.040Z,"53 km N of Miyako, Japan",earthquake,6.4,1.9,0.063,24,reviewed,us,us
+2020-12-20T17:23:22.668Z,40.8667,142.5814,35,6.3,mww,,33,1.153,1.07,us,us7000csqe,2022-12-11T22:20:18.260Z,"100 km ENE of Hachinohe, Japan",earthquake,6.8,1.9,0.041,57,reviewed,us,us
+2020-12-24T23:43:41.964Z,13.82,120.6539,109,6.3,mww,,15,3.715,0.75,us,us6000d2ra,2022-03-10T05:50:52.505Z,"2 km ESE of Calatagan, Philippines",earthquake,5.8,1.8,0.032,92,reviewed,us,us
+2021-01-11T21:32:59.015Z,51.2811,100.4383,10,6.7,mww,,22,2.043,0.75,us,us6000d7ix,2022-04-02T03:58:49.807Z,"29 km SSW of Turt, Mongolia",earthquake,6.7,1.7,0.039,62,reviewed,us,us
+2021-01-12T02:39:43.421Z,43.7004,139.9863,214,5.9,mww,,22,1.929,0.72,us,us6000d7ml,2021-03-20T21:24:30.040Z,"84 km NW of Yoichi, Japan",earthquake,7,1.9,0.071,19,reviewed,us,us
+2021-02-07T04:22:56.667Z,6.7693,125.1011,16,6,mww,,37,0.56,1.39,us,us6000df9r,2023-04-15T15:12:25.496Z,"9 km W of Magsaysay, Philippines",earthquake,7.1,1.7,0.048,41,reviewed,us,us
+2021-02-13T14:07:49.797Z,37.7265,141.7751,43.98,7.1,mww,,11,3.085,0.94,us,us6000dher,2022-08-12T12:10:12.886Z,"73 km ENE of Namie, Japan",earthquake,7,2.8,0.036,74,reviewed,us,us
+2021-03-02T09:23:02.046Z,21.9305,121.2921,31.63,5.5,mww,,81,0.904,0.53,us,us7000detx,2021-05-13T22:40:30.040Z,"57 km E of Hengchun, Taiwan",earthquake,7.6,4,0.063,24,reviewed,us,us
+2021-03-06T18:18:33.634Z,21.0971,144.441,10,5.5,mww,,34,5.971,0.71,us,us7000dgkl,2023-02-20T22:17:18.613Z,"Mariana Islands region",earthquake,8.1,1.8,0.093,11,reviewed,us,us
+2021-03-06T18:51:12.620Z,20.8917,144.3647,10,5.7,mww,,21,5.788,0.82,us,us7000dgkw,2023-02-20T22:14:49.414Z,"Maug Islands region, Northern Mariana Islands",earthquake,7.9,1.7,0.048,42,reviewed,us,us
+2021-03-19T06:11:27.113Z,31.9246,92.9151,8,5.7,mww,,19,2.696,0.59,us,us7000dkv0,2021-06-02T15:23:54.040Z,"95 km ENE of Nagqu, China",earthquake,7.1,1.8,0.086,13,reviewed,us,us
+2021-03-20T09:09:43.966Z,38.4515,141.6477,43,7,mww,,35,2.378,0.75,us,us7000dl6y,2022-08-12T12:07:56.816Z,"30 km E of Ishinomaki, Japan",earthquake,7.2,1.9,0.045,47,reviewed,us,us
+2021-03-26T22:02:16.801Z,26.1379,125.0872,153,5.9,mww,,16,2.509,0.85,us,us6000dww9,2021-06-08T17:58:39.040Z,"149 km N of Hirara, Japan",earthquake,6.1,1.4,0.046,46,reviewed,us,us
+2021-03-28T00:26:55.783Z,33.6313,140.2781,40,5.7,mww,,18,0.644,0.85,us,us6000dx32,2021-06-08T17:58:51.040Z,"154 km SSE of Tateyama, Japan",earthquake,6.9,1.8,0.052,35,reviewed,us,us
+2021-04-18T00:29:11.489Z,38.3481,141.95,41,5.6,mww,,40,2.532,0.89,us,us6000e2hf,2022-12-11T22:50:56.542Z,"57 km E of Ishinomaki, Japan",earthquake,6.6,1.9,0.052,35,reviewed,us,us
+2021-04-18T00:29:25.096Z,38.2543,141.8817,31.43,5.6,mb,,41,2.609,0.72,us,us6000e2hq,2021-07-25T18:43:13.503Z,"53 km ESE of Ishinomaki, Japan",earthquake,3.8,4.1,0.05,140,reviewed,us,us
+2021-04-18T14:11:38.411Z,23.7895,121.5649,10,5.5,mb,,34,0.383,0.76,us,us6000e2mt,2021-07-03T16:48:11.040Z,"21 km S of Hualien City, Taiwan",earthquake,4.4,1.8,0.104,32,reviewed,us,us
+2021-04-18T14:14:36.967Z,23.857,121.5264,12,5.8,mww,,24,0.321,0.69,us,us6000e2mv,2021-07-03T16:48:11.040Z,"15 km SSW of Hualien City, Taiwan",earthquake,5.8,1.8,0.06,27,reviewed,us,us
+2021-04-28T02:21:26.212Z,26.7813,92.4565,34,6,mww,,11,1.324,0.79,us,us7000dy3b,2021-12-22T03:20:52.001Z,"8 km NNW of Dhekiajuli, India",earthquake,6.6,1.7,0.066,22,reviewed,us,us
+2021-05-01T01:27:27.215Z,38.1997,141.5973,43,6.9,mww,,35,2.619,0.82,us,us7000dz5t,2022-02-16T09:45:02.989Z,"",earthquake,7.3,1.9,0.041,58,reviewed,us,us
+2021-05-03T05:07:30.816Z,25.7702,123.885,199,5.5,mww,,30,1.52,0.64,us,us7000dzma,2021-07-10T20:15:07.040Z,"160 km N of Ishigaki, Japan",earthquake,7.6,1.9,0.05,39,reviewed,us,us
+2021-05-03T08:46:39.830Z,51.3055,100.4195,18,5.6,mww,,30,2.05,0.51,us,us7000dznc,2022-07-26T06:59:06.569Z,"28 km SW of Turt, Mongolia",earthquake,7.3,1.8,0.065,23,reviewed,us,us
+2021-05-12T01:09:27.067Z,13.5716,120.8478,113,5.8,mww,,14,7.962,1.04,us,us7000e28e,2021-07-23T18:08:33.040Z,"10 km SSW of Tingloy, Philippines",earthquake,7.6,1.8,0.039,63,reviewed,us,us
+2021-05-13T23:58:14.041Z,37.7169,141.8167,32,6,mww,,43,3.112,0.93,us,us7000e2xd,2022-08-12T12:05:43.057Z,"76 km ENE of Namie, Japan",earthquake,6.8,1.9,0.048,42,reviewed,us,us
+2021-05-16T03:23:53.371Z,42.0159,144.4738,9,5.7,mww,,40,0.981,1.13,us,us7000e3h1,2021-07-24T21:07:14.040Z,"106 km S of Kushiro, Japan",earthquake,6.2,1.8,0.08,15,reviewed,us,us
+2021-05-21T13:48:37.193Z,25.7274,100.0082,9,6.1,mww,,17,4.438,0.93,us,us7000e532,2022-08-09T05:10:54.306Z,"25 km NW of Dali, China",earthquake,6.8,1.7,0.053,34,reviewed,us,us
+2021-05-21T18:04:13.565Z,34.5983,98.2513,10,7.3,mww,,9,4.655,0.77,us,us7000e54r,2022-11-18T12:23:16.011Z,"Southern Qinghai, China",earthquake,3,1.7,0.037,71,reviewed,us,us
+2021-05-21T18:12:15.048Z,34.617,98.4674,10,5.5,mb,,38,4.48,0.55,us,us6000ef48,2021-07-31T22:08:07.040Z,"Southern Qinghai, China",earthquake,9.5,1.8,0.08,57,reviewed,us,us
+2021-05-21T18:13:01.128Z,34.4808,99.0805,10,5.5,mb,,43,4.054,0.73,us,us6000ef4i,2021-07-31T22:08:07.040Z,"Southern Qinghai, China",earthquake,9,1.9,0.093,45,reviewed,us,us
+2021-05-29T01:02:41.087Z,36.3105,141.9873,12.04,5.5,mww,,63,3.055,0.85,us,us6000efq6,2021-11-19T07:50:24.227Z,"122 km ENE of Hasaki, Japan",earthquake,2.3,3,0.071,19,reviewed,us,us
+2021-06-14T14:38:41.447Z,7.7102,124.967,5.86,5.7,mww,,41,0.879,0.61,us,us7000ecyk,2021-08-26T21:59:19.040Z,"5 km NW of Don Carlos, Philippines",earthquake,3.9,3.3,0.044,50,reviewed,us,us
+2021-06-16T08:48:58.863Z,38.2061,93.7234,10,5.5,mww,,29,8.75,0.75,us,us7000edh9,2021-08-26T21:59:25.040Z,"northern Qinghai, China",earthquake,7.6,1.8,0.068,21,reviewed,us,us
+2021-07-23T20:48:57.357Z,13.7047,120.7259,110,6.7,mww,,12,8.139,0.98,us,us6000eyfk,2021-12-07T15:21:27.547Z,"15 km S of Hukay, Philippines",earthquake,7.2,1.8,0.051,37,reviewed,us,us
+2021-07-23T20:57:18.713Z,13.7977,120.7434,120.58,5.8,mww,,19,8.203,0.84,us,us6000eyfn,2021-10-03T05:21:29.040Z,"6 km SE of Hukay, Philippines",earthquake,6.5,3,0.089,12,reviewed,us,us
+2021-07-29T08:39:27.722Z,22.8638,95.9967,10,5.5,mb,,48,2.066,0.7,us,us6000f051,2021-10-03T05:23:09.040Z,"44 km NE of Shwebo, Myanmar",earthquake,5.8,1.8,0.055,114,reviewed,us,us
+2021-08-03T20:33:34.791Z,36.0981,142.1045,27,5.8,mww,,40,1.657,0.76,us,us6000f1z7,2021-11-19T07:57:03.767Z,"121 km ENE of Hasaki, Japan",earthquake,5.9,1.8,0.069,20,reviewed,us,us
+2021-08-04T21:50:46.473Z,24.7827,122.3105,10,5.8,mww,,9,0.711,0.86,us,us6000f29v,2021-10-14T01:07:17.040Z,"56 km E of Yilan, Taiwan",earthquake,5.8,1.7,0.05,38,reviewed,us,us
+2021-08-11T17:46:13.143Z,6.4748,126.7151,55.14,7.1,mww,,25,1.273,1.27,us,us6000f48v,2023-04-10T05:46:40.584Z,"60 km ENE of Pondaguitan, Philippines",earthquake,6.5,3.7,0.037,71,reviewed,us,us
+2021-08-12T15:53:28.451Z,6.2918,127.3033,10,5.7,mww,,46,1.878,0.75,us,us6000f4k8,2021-10-23T15:46:15.040Z,"124 km E of Pondaguitan, Philippines",earthquake,4.8,1.8,0.098,10,reviewed,us,us
+2021-08-13T15:08:31.218Z,13.7016,120.7817,121,5.9,mww,,26,9.071,1.09,us,us6000f5na,2021-10-29T14:46:07.040Z,"10 km WNW of Tingloy, Philippines",earthquake,9.7,1.9,0.034,84,reviewed,us,us
+2021-08-27T10:22:26.052Z,5.671,125.0293,54.5,5.6,mww,,35,1.493,0.47,us,us7000f4kz,2021-11-06T20:29:01.040Z,"20 km S of Malbang, Philippines",earthquake,6.1,5.9,0.065,23,reviewed,us,us
+2021-09-13T22:46:06.357Z,32.4784,137.8572,370,5.8,mww,,18,1.743,0.9,us,us7000faw7,2021-12-21T22:23:39.281Z,"223 km SE of Shing?, Japan",earthquake,7.7,1.7,0.048,41,reviewed,us,us
+2021-09-26T17:12:05.243Z,13.8941,120.5097,83,5.7,mww,,21,8.415,1.24,us,us7000fen1,2021-12-04T14:29:47.040Z,"12 km W of Talisay, Philippines",earthquake,8.2,1.9,0.036,73,reviewed,us,us
+2021-09-29T08:37:05.619Z,38.8893,135.4527,364,6.1,mww,,13,3.198,0.82,us,us6000fq2d,2021-12-04T14:27:57.040Z,"243 km NNW of Nanao, Japan",earthquake,7.2,1.9,0.05,38,reviewed,us,us
+2021-10-05T17:46:02.970Z,40.0529,142.141,55,5.7,mww,,11,1.102,0.91,us,us6000frzg,2022-01-05T00:38:20.081Z,"48 km NNE of Miyako, Japan",earthquake,6,1.8,0.046,45,reviewed,us,us
+2021-10-07T13:41:24.528Z,35.5736,140.0705,62,5.9,mww,,29,1.786,1.1,us,us6000fsl6,2022-09-22T07:10:52.585Z,"5 km SW of Chiba, Japan",earthquake,6.1,1.9,0.055,32,reviewed,us,us
+2021-10-07T18:28:03.669Z,22.3124,94.7676,110,5.5,mww,,23,1.129,0.81,us,us6000fsrg,2021-12-10T21:14:20.040Z,"44 km WNW of Monywa, Myanmar",earthquake,6,1.8,0.056,31,reviewed,us,us
+2021-10-21T08:36:47.973Z,32.1131,138.1614,335.78,5.5,mww,,30,1.715,0.77,us,us6000fwdc,2021-12-25T22:58:56.040Z,"271 km SE of Shing?, Japan",earthquake,7.6,4.6,0.098,10,reviewed,us,us
+2021-10-24T05:11:34.230Z,24.5108,121.8314,69,6.2,mww,,18,0.399,0.92,us,us6000fx56,2022-01-08T17:42:13.040Z,"28 km SSE of Yilan, Taiwan",earthquake,6.3,1.9,0.048,41,reviewed,us,us
+2021-11-10T15:45:13.652Z,23.5935,126.4474,12,6.6,mww,,15,3.259,0.8,us,us7000fszl,2022-02-01T22:10:17.110Z,"177 km SE of Hirara, Japan",earthquake,6.2,1.7,0.033,90,reviewed,us,us
+2021-11-25T23:45:41.752Z,22.8232,93.5061,43,6.2,mww,,21,1.726,0.88,us,us7000fx45,2022-09-30T05:55:20.796Z,"20 km WSW of Falam, Myanmar",earthquake,5.4,3.7,0.08,15,reviewed,us,us
+2021-11-26T07:14:04.082Z,28.9223,142.354,11,5.6,mww,,63,1.825,0.74,us,us7000fx6f,2022-02-05T23:04:12.040Z,"",earthquake,6.1,1.4,0.054,33,reviewed,us,us
+2021-11-29T12:40:44.400Z,31.196,142.5026,11,6.3,mww,,35,2.976,0.75,us,us7000fxyq,2022-02-05T23:04:33.040Z,"",earthquake,8,1.8,0.037,71,reviewed,us,us
+2021-11-30T06:53:34.578Z,31.217,142.4377,20.07,5.5,mww,,54,2.921,0.53,us,us6000g7tw,2022-08-06T18:31:09.325Z,"Izu Islands, Japan region",earthquake,8.7,1.6,0.044,49,reviewed,us,us
+2021-12-09T02:05:07.684Z,29.4132,129.3846,7,6,mww,,19,2.283,0.66,us,us6000gaq5,2022-02-12T23:07:06.040Z,"116 km N of Naze, Japan",earthquake,5.8,1.7,0.055,32,reviewed,us,us
+2021-12-13T09:12:33.433Z,13.6205,120.7577,133.39,5.5,mww,,32,8.68,0.72,us,us6000gbu7,2022-02-24T21:00:29.040Z,"Mindoro, Philippines",earthquake,9,3.9,0.037,69,reviewed,us,us
+2021-12-19T21:06:15.047Z,19.5613,101.3109,10,5.5,mww,,22,1.104,0.66,us,us6000gdng,2022-03-01T16:38:01.040Z,"53 km NW of Sainyabuli, Laos",earthquake,4.3,1.7,0.044,50,reviewed,us,us
+2021-12-24T13:43:22.922Z,22.3699,101.6708,9.48,5.7,mww,,21,2.214,0.57,us,us6000gf1y,2022-03-05T23:10:36.040Z,"88 km NNW of Phôngsali, Laos",earthquake,6.4,3.8,0.046,46,reviewed,us,us
+2021-12-26T08:26:47.590Z,25.2095,125.6031,19.09,5.9,mww,,27,2.468,0.56,us,us6000gfd9,2022-03-05T23:10:41.040Z,"southwestern Ryukyu Islands, Japan",earthquake,6.8,3.2,0.037,71,reviewed,us,us
+2022-01-03T09:46:35.767Z,24.0079,122.2592,19,6.2,mww,,66,0.629,0.9,us,us7000g8n3,2022-12-15T04:25:35.010Z,"66 km E of Hualien City, Taiwan",earthquake,4.4,1.7,0.053,34,reviewed,us,us
+2022-01-03T21:08:51.066Z,27.1965,141.5457,40,5.8,mww,,14,0.578,1.11,us,us7000g8rm,2022-03-12T22:19:05.040Z,"Bonin Islands, Japan region",earthquake,5.7,1.8,0.062,25,reviewed,us,us
+2022-01-07T17:45:30.809Z,37.8283,101.29,13,6.6,mww,,13,2.685,0.69,us,us7000g9zq,2022-05-20T05:35:37.367Z,"northern Qinghai, China",earthquake,7,1.7,0.08,15,reviewed,us,us
+2022-01-21T16:08:37.210Z,32.7282,132.0386,39,6.3,mww,,25,1.813,1.11,us,us7000gdwz,2023-02-10T15:51:03.910Z,"27 km SSE of Saiki, Japan",earthquake,5.8,1.9,0.073,18,reviewed,us,us
+2022-01-23T02:21:19.926Z,38.4613,97.3425,10,5.6,mww,,24,5.653,0.85,us,us7000gebb,2022-05-31T22:08:08.642Z,"156 km SSW of Laojunmiao, China",earthquake,7.3,1.8,0.06,27,reviewed,us,us
+2022-02-08T16:36:31.681Z,26.8395,126.5254,10,5.6,mww,,36,1.561,0.81,us,us7000gj4q,2022-04-19T17:39:09.040Z,"Ryukyu Islands, Japan",earthquake,5.8,1.8,0.043,51,reviewed,us,us
+2022-02-13T04:36:17.787Z,19.1297,121.173,28.22,5.5,mww,,47,3.67,0.93,us,us7000gkf7,2022-04-30T14:18:04.040Z,"57 km N of Namuac, Philippines",earthquake,7.4,3.6,0.05,38,reviewed,us,us
+2022-02-21T20:52:32.543Z,26.8606,126.4361,11.49,5.6,mww,,37,1.64,0.88,us,us7000gmrx,2022-05-04T13:39:27.040Z,"143 km WNW of Naha, Japan",earthquake,6.6,3.4,0.049,40,reviewed,us,us
+2022-03-13T21:05:49.469Z,14.096,119.3811,11,6.4,mww,,28,8.823,0.88,us,us6000h48d,2022-05-27T14:55:19.040Z,"75 km WNW of Cabra, Philippines",earthquake,6.7,1.7,0.033,87,reviewed,us,us
+2022-03-16T14:34:27.453Z,37.6468,141.6735,57.18,6,mwb,,51,2.981,0.67,us,us6000h518,2022-05-27T14:55:29.040Z,"62 km ENE of Namie, Japan",earthquake,7.5,6.4,0.046,46,reviewed,us,us
+2022-03-16T14:36:30.997Z,37.7132,141.5793,41,7.3,mww,,29,2.936,0.88,us,us6000h519,2023-03-10T20:56:20.662Z,"57 km ENE of Namie, Japan",earthquake,6.9,1.9,0.054,33,reviewed,us,us
+2022-03-16T15:52:29.990Z,37.8061,141.8531,55.01,5.5,mb,,21,3.041,1.09,us,us6000h53e,2022-05-27T14:55:29.040Z,"83 km SE of Ishinomaki, Japan",earthquake,6.4,4.5,0.021,761,reviewed,us,us
+2022-03-17T11:33:37.138Z,26.8146,126.3749,9,5.7,mww,,39,1.695,0.88,us,us6000h5cy,2022-05-27T14:55:31.040Z,"146 km WNW of Naha, Japan",earthquake,6.1,1.7,0.066,22,reviewed,us,us
+2022-03-18T19:04:18.686Z,25.6706,123.998,165.94,5.9,mww,,30,1.495,0.81,us,us6000h5uk,2022-05-27T14:55:39.040Z,"147 km N of Ishigaki, Japan",earthquake,7,2.9,0.043,52,reviewed,us,us
+2022-03-22T17:41:38.584Z,23.3839,121.6118,24,6.7,mww,,32,0.289,0.83,us,us6000h6nr,2022-08-10T03:20:17.453Z,"65 km S of Hualien City, Taiwan",earthquake,4.5,1.7,0.083,14,reviewed,us,us
+2022-03-22T17:43:25.213Z,23.42,121.4901,16.66,5.9,mb,,19,0.179,0.73,us,us6000h6rn,2022-08-06T08:20:10.758Z,"62 km S of Hualien City, Taiwan",earthquake,4.6,1.9,0.055,125,reviewed,us,us
+2022-03-22T19:35:03.930Z,23.5048,121.542,24,5.5,mwr,,36,0.251,0.87,us,us6000h6s3,2022-05-28T18:35:25.040Z,"52 km S of Hualien City, Taiwan",earthquake,3.4,1.6,0.06,27,reviewed,us,us
+2022-03-22T20:29:58.188Z,23.4084,121.5099,18,5.8,mww,,31,0.196,0.85,us,us6000h6sl,2022-05-28T18:35:25.040Z,"63 km S of Hualien City, Taiwan",earthquake,4.4,1.7,0.06,27,reviewed,us,us
+2022-03-25T16:21:03.998Z,38.5365,97.2898,10,5.7,mww,,27,11.417,0.86,us,us7000gx8m,2022-05-28T18:35:36.040Z,"148 km SSW of Laojunmiao, China",earthquake,8.1,1.8,0.066,22,reviewed,us,us
+2022-04-03T10:24:54.783Z,9.2559,126.6946,17.04,5.6,mww,,43,2.436,0.64,us,us7000gzcf,2022-06-11T20:21:00.040Z,"55 km E of Cortes, Philippines",earthquake,3.4,3.3,0.075,17,reviewed,us,us
+2022-04-07T23:36:10.821Z,21.7031,121.0439,10,5.7,mww,,56,1.109,0.88,us,us7000h0jz,2022-06-11T20:21:13.040Z,"45 km SE of Hengchun, Taiwan",earthquake,7.1,1.7,0.055,32,reviewed,us,us
+2022-04-13T01:22:32.819Z,26.8566,126.4128,8,5.6,mww,,35,1.661,0.54,us,us7000h1lc,2022-06-20T22:08:00.040Z,"145 km WNW of Naha, Japan",earthquake,5.8,1.7,0.058,29,reviewed,us,us
+2022-04-19T01:23:07.057Z,7.2852,126.9533,19,6.1,mww,,42,1.38,0.96,us,us7000h373,2022-06-26T01:19:27.040Z,"41 km E of Santiago, Philippines",earthquake,6.8,1.7,0.045,47,reviewed,us,us
+2022-04-20T21:57:43.018Z,6.9686,126.9241,19,6,mww,,22,1.338,0.95,us,us6000hf49,2022-06-26T01:20:15.040Z,"50 km ESE of Manay, Philippines",earthquake,6.4,1.7,0.044,50,reviewed,us,us
+2022-05-01T21:57:49.305Z,23.6503,142.7068,54,5.5,mww,122,36,3.463,0.64,us,us7000h69c,2022-07-09T21:39:48.040Z,"Volcano Islands, Japan region",earthquake,8.7,1.9,0.06,27,reviewed,us,us
+2022-05-04T21:41:06.134Z,6.4879,127.0565,19.82,5.6,mww,194,50,1.576,0.82,us,us7000h74t,2022-07-09T21:39:59.040Z,"90 km ESE of Bobon, Philippines",earthquake,7.5,2.9,0.049,40,reviewed,us,us
+2022-05-05T08:21:15.666Z,6.5295,127.1315,18,6,mww,124,72,1.632,0.48,us,us7000h781,2022-07-09T21:40:02.040Z,"94 km SE of Lukatan, Philippines",earthquake,4.9,1.8,0.043,51,reviewed,us,us
+2022-05-07T11:53:56.580Z,26.7906,126.4642,10,5.5,mww,145,40,1.616,0.52,us,us7000h7s7,2022-07-22T18:31:05.040Z,"137 km WNW of Naha, Japan",earthquake,5.5,1.8,0.043,51,reviewed,us,us
+2022-05-09T06:23:02.067Z,24.0406,122.4888,21,6.2,mww,200,34,0.638,0.34,us,us7000h82f,2022-07-22T18:31:08.040Z,"70 km SW of Yonakuni, Japan",earthquake,6.1,1.8,0.049,40,reviewed,us,us
+2022-05-17T06:04:53.424Z,33.3852,141.6529,10,5.5,mww,158,62,1.564,0.69,us,us6000hlq7,2022-07-24T02:39:22.040Z,"230 km SSE of Katsuura, Japan",earthquake,3.5,1.8,0.057,30,reviewed,us,us
+2022-05-17T13:17:52.144Z,33.3872,141.5114,13,5.5,mww,118,83,1.448,0.4,us,us6000hlry,2022-07-24T02:39:29.040Z,"224 km SSE of Katsuura, Japan",earthquake,6.4,3.3,0.049,40,reviewed,us,us
+2022-05-18T03:52:25.111Z,33.3301,141.4573,13,5.6,mww,124,39,1.394,0.52,us,us6000hlxg,2022-07-24T02:39:45.040Z,"227 km SSE of Katsuura, Japan",earthquake,6.1,1.4,0.062,25,reviewed,us,us
+2022-05-21T21:50:48.047Z,14.0187,120.6494,129,6.1,mww,270,11,8.435,1.04,us,us6000hmz8,2022-08-02T19:50:38.040Z,"1 km S of Lian, Philippines",earthquake,8.7,1.8,0.033,90,reviewed,us,us
+2022-05-22T15:17:31.327Z,33.2279,141.4121,12,6,mww,126,52,1.345,0.63,us,us6000hn4d,2022-08-02T19:50:40.040Z,"235 km SSE of Katsuura, Japan",earthquake,7,1.8,0.042,55,reviewed,us,us
+2022-05-23T02:01:05.931Z,41.2357,143.0991,34,5.5,mww,182,95,0.779,0.72,us,us6000hn6m,2022-08-02T19:50:42.040Z,"136 km SSE of Shizunai-furukawach?, Japan",earthquake,5.8,1.8,0.051,37,reviewed,us,us
+2022-06-01T09:00:08.401Z,30.3951,102.9582,12,5.8,mww,229,15,5.651,0.71,us,us7000he1h,2023-02-04T11:54:04.113Z,"48 km W of Linqiong, China",earthquake,7.4,1.8,0.043,52,reviewed,us,us
+2022-06-02T18:54:31.063Z,9.0182,126.5097,38.76,5.5,mww,124,23,2.144,1.05,us,us7000hefw,2022-08-06T22:13:19.040Z,"26 km ENE of Bacolod, Philippines",earthquake,7.9,1.4,0.055,32,reviewed,us,us
+2022-06-03T07:03:35.211Z,26.7819,126.4199,10,5.6,mww,156,43,1.656,0.61,us,us7000heku,2022-08-06T22:13:22.040Z,"140 km WNW of Naha, Japan",earthquake,6.6,1.9,0.042,54,reviewed,us,us
+2022-06-09T16:03:26.522Z,32.3152,101.8363,10.14,5.6,mww,226,20,3.945,0.61,us,us7000hg8b,2022-08-13T21:52:45.040Z,"247 km NW of Tianpeng, China",earthquake,7.1,3.2,0.056,31,reviewed,us,us
+2022-06-09T17:28:35.801Z,32.3726,101.8721,7,5.9,mww,167,20,6.848,0.55,us,us7000hg9p,2022-08-13T21:52:10.040Z,"249 km NW of Tianpeng, China",earthquake,8.61,1.773,0.055,32,reviewed,us,us
+2022-06-19T09:55:19.070Z,26.7173,126.5426,7,5.5,mww,113,37,1.551,0.48,us,us7000hiil,2022-08-28T03:18:42.040Z,"126 km WNW of Naha, Japan",earthquake,6,1.8,0.052,36,reviewed,us,us
+2022-06-20T01:05:07.321Z,23.6544,121.4725,8,5.9,mww,149,34,0.306,0.45,us,us7000him8,2022-08-28T03:19:02.040Z,"38 km SSW of Hualien City, Taiwan",earthquake,3.2,1.7,0.048,42,reviewed,us,us
+2022-06-21T07:14:53.666Z,27.8624,142.7323,10,5.9,mww,142,49,0.905,0.77,us,us7000hixl,2022-08-29T04:33:56.507Z,"Bonin Islands, Japan region",earthquake,6,1.8,0.043,53,reviewed,us,us
+2022-06-30T18:40:36.938Z,19.0236,121.3363,30,6,mww,144,26,3.782,1.01,us,us6000hywe,2022-09-03T21:03:23.040Z,"49 km NNE of Namuac, Philippines",earthquake,8,1.8,0.042,55,reviewed,us,us
+2022-07-02T01:59:45.250Z,45.9178,142.0358,309,5.9,mww,139,51,1.155,1.07,us,us6000hzas,2022-09-13T06:20:39.040Z,"58 km SSE of Shebunino, Russia",earthquake,5.3,1.7,0.038,65,reviewed,us,us
+2022-07-21T17:07:25.226Z,21.1504,99.8777,5,5.9,mww,128,37,0.3,0.88,us,us7000hsg4,2022-09-27T16:57:12.040Z,"53 km S of K?ng Tung, Myanmar",earthquake,5.99,1.795,0.051,37,reviewed,us,us
+2022-07-27T00:43:26.871Z,17.5207,120.8181,33.729,7,mww,152,22,5.276,0.6,us,us6000i5rd,2023-04-15T14:46:01.674Z,"11 km NE of Bantay, Philippines",earthquake,7.93,2.766,0.044,50,reviewed,us,us
+2022-08-02T05:24:27.762Z,6.8333,123.7663,20,5.5,mww,87,56,1.815,0.54,us,us6000i7d8,2022-10-12T14:49:49.040Z,"",earthquake,7.54,1.794,0.065,23,reviewed,us,us
+2022-08-04T03:39:45.898Z,32.6119,142.5292,11.525,5.7,mww,319,26,2.34,0.54,us,us6000i7xr,2022-10-12T14:50:23.040Z,"Izu Islands, Japan region",earthquake,6.91,2.897,0.053,34,reviewed,us,us
+2022-08-13T06:25:32.230Z,6.9062,123.792,19.913,5.8,mww,140,32,1.781,0.61,us,us6000iag5,2022-10-28T02:25:35.040Z,"Moro Gulf, Mindanao, Philippines",earthquake,7.15,3.265,0.047,44,reviewed,us,us
+2022-08-14T08:20:00.340Z,33.1157,92.7977,5,5.7,mww,191,25,8.375,0.47,us,us6000iaqi,2022-10-28T02:25:50.040Z,"194 km NNE of Nagqu, China",earthquake,7.45,1.83,0.098,10,reviewed,us,us
+2022-08-17T04:24:44.961Z,33.1235,141.7775,10,5.6,mww,62,71,1.648,0.46,us,us6000ibi3,2022-10-28T02:26:39.040Z,"261 km SSE of Katsuura, Japan",earthquake,7.39,1.819,0.054,33,reviewed,us,us
+2022-08-29T12:19:38.362Z,28.8646,130.6526,28,5.5,mww,94,48,2.642,0.53,us,us7000i3c8,2022-11-06T04:38:04.040Z,"126 km ENE of Naze, Japan",earthquake,5.4,1.889,0.066,22,reviewed,us,us
+2022-09-05T04:52:19.645Z,29.6786,102.236,12,6.6,mww,141,34,8.454,0.52,us,us7000i59t,2023-02-04T11:44:13.731Z,"44 km SE of Kangding, China",earthquake,8.19,1.746,0.04,59,reviewed,us,us
+2022-09-17T13:41:17.890Z,23.1191,121.4138,10,6.5,mww,178,54,0.43,0.75,us,us7000i8ui,2022-11-26T20:57:33.040Z,"96 km SE of Lugu, Taiwan",earthquake,7.54,1.746,0.038,67,reviewed,us,us
+2022-09-17T14:45:27.429Z,22.9547,121.2227,10,5.5,mww,54,51,0.645,0.98,us,us7000i8v9,2022-11-26T20:57:34.040Z,"Taiwan region",earthquake,3.7,1.755,0.052,35,reviewed,us,us
+2022-09-18T05:19:17.747Z,23.0986,121.3134,11,5.6,mww,128,50,0.353,0.42,us,us7000i903,2022-11-26T20:57:37.040Z,"87 km E of Yujing, Taiwan",earthquake,5.03,1.844,0.065,23,reviewed,us,us
+2022-09-18T06:44:13.846Z,23.138,121.3439,10,6.9,mww,215,34,0.401,0.58,us,us7000i90q,2022-11-27T01:30:45.570Z,"90 km E of Yujing, Taiwan",earthquake,6.07,1.822,0.038,68,reviewed,us,us
+2022-09-18T08:09:58.854Z,26.2583,126.0051,10,5.7,mww,112,31,2.111,0.59,us,us7000i91n,2022-11-26T20:57:37.040Z,"166 km W of Itoman, Japan",earthquake,6.84,1.855,0.066,22,reviewed,us,us
+2022-09-18T09:39:56.516Z,23.2178,121.2918,10,5.9,mww,98,34,0.444,0.5,us,us7000i928,2022-11-26T20:57:38.040Z,"80 km SE of Lugu, Taiwan",earthquake,6.44,1.854,0.089,12,reviewed,us,us
+2022-09-19T02:07:42.832Z,23.371,121.4499,9,5.5,mww,107,27,0.142,0.77,us,us7000i96l,2022-11-26T20:57:41.040Z,"68 km SSW of Hualien City, Taiwan",earthquake,1.97,1.793,0.06,27,reviewed,us,us
+2022-09-29T22:22:36.730Z,23.1002,94.8968,150,5.6,mww,161,20,3.03,0.72,us,us6000ipft,2022-12-03T22:02:42.040Z,"78 km SE of Mawlaik, Myanmar",earthquake,6.97,1.849,0.053,34,reviewed,us,us
+2022-10-01T15:02:32.377Z,31.3495,131.4691,31,5.7,mww,178,49,0.883,0.93,us,us6000iq08,2022-12-10T22:52:33.040Z,"26 km SE of Kushima, Japan",earthquake,4.97,1.792,0.086,13,reviewed,us,us
+2022-10-10T19:24:39.976Z,23.9304,122.2867,15,5.5,mww,111,65,0.677,0.66,us,us6000isjn,2022-12-17T22:53:51.040Z,"69 km E of Hualien City, Taiwan",earthquake,5.71,1.668,0.061,26,reviewed,us,us
+2022-10-19T08:05:40.546Z,6.7327,125.1351,34,5.5,mww,107,33,0.554,0.97,us,us6000iust,2022-12-31T23:03:39.040Z,"6 km SW of Magsaysay, Philippines",earthquake,6.53,1.818,0.063,24,reviewed,us,us
+2022-10-25T14:59:00.085Z,17.6609,120.8147,6,6.4,mww,124,25,5.137,0.55,us,us6000iwds,2023-04-13T14:58:46.088Z,"11 km E of Dolores, Philippines",earthquake,7.31,1.778,0.05,38,reviewed,us,us
+2022-11-10T05:01:05.611Z,28.3835,94.4118,15,5.5,mww,182,35,6.722,0.5,us,us7000inqd,2023-01-21T19:27:18.040Z,"16 km SSE of Shi Yomi, India",earthquake,8.34,1.843,0.089,12,reviewed,us,us
+2022-11-14T08:08:26.124Z,33.8139,137.3055,346,6.1,mww,274,28,1.127,0.63,us,us7000ipkm,2023-01-28T19:58:14.040Z,"85 km SSE of Toba, Japan",earthquake,7.92,1.907,0.042,54,reviewed,us,us
+2022-12-09T06:32:59.635Z,13.1588,125.8253,9,5.8,mww,164,82,6.056,0.62,us,us6000j83l,2023-02-11T23:03:19.040Z,"96 km NE of Cabatuan, Philippines",earthquake,8.59,1.834,0.043,52,reviewed,us,us
+2022-12-09T20:01:56.492Z,6.4472,126.1762,72.166,5.6,mww,272,21,0.857,0.78,us,us6000j88f,2023-02-11T23:03:22.040Z,"6 km ESE of Nangan, Philippines",earthquake,8.3,2.734,0.05,38,reviewed,us,us
+2022-12-13T14:25:17.214Z,27.5074,129.5492,19,5.6,mww,151,29,1.319,0.57,us,us6000j901,2023-02-18T22:04:08.040Z,"95 km S of Naze, Japan",earthquake,4.92,1.509,0.056,31,reviewed,us,us
+2022-12-15T04:03:15.817Z,23.7695,121.8115,13,5.9,mww,129,36,0.449,0.62,us,us6000j9by,2023-02-18T22:04:11.040Z,"31 km SE of Hualien City, Taiwan",earthquake,3.17,1.728,0.043,52,reviewed,us,us
+2022-12-17T18:06:02.988Z,31.7958,131.6429,30,5.6,mww,204,70,1.054,0.94,us,us6000ja1a,2023-02-28T23:06:23.040Z,"25 km ESE of Miyazaki, Japan",earthquake,5.03,1.8,0.069,20,reviewed,us,us
+2022-12-24T08:35:41.508Z,28.2943,138.8056,519.989,5.5,mww,223,28,3.225,0.67,us,us6000jbf0,2023-03-07T18:59:45.040Z,"",earthquake,9.63,4.558,0.075,17,reviewed,us,us
