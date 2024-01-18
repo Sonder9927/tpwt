@@ -37,8 +37,7 @@ class EvtMaker:
 
     def extract(self, form, cols: list[str] | None = None) -> pd.DataFrame:
         if cols is None:
-            cols = []
-        cols.insert(0, "time")
-        evt = self.evt[cols]
+            cols = list(self.header)
+        evt = self.evt[cols].copy()
         evt["time"] = evt["time"].apply(lambda x: self.time_convert(str(x)[:19], form))
         return evt

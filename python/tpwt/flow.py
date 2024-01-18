@@ -28,10 +28,10 @@ def evt_files(param) -> None:
     )
     # event.cat for
     cat_form = "%Y/%m/%d,%H:%M:%S"
-    evt_cat = evt.extract(cat_form)
+    evt_cat = evt.extract(cat_form, cols=["time"])
     evt_cat.to_csv(param.target("evt_cat"), sep=" ", index=False, header=False)
     lst_form = "%Y%m%d%H%M"
-    evt_lst = evt.extract(lst_form, cols=["longitude", "latitude", "mag"])
+    evt_lst = evt.extract(lst_form)
     evt_lst.to_csv(param.target("evt_csv"), index=False)
 
 
