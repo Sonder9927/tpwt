@@ -1,6 +1,6 @@
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
-import obspy
+# import obspy
 
 from tpwt.rose import glob_patterns
 
