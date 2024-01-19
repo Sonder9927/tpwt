@@ -14,7 +14,7 @@
     "tevtrmscut": 8.0,
     "ampevtrmscut": 1.0,
     "channel": "LHZ",
-    "dcheck": 1,
+    "dcheck": 2,
     "dvel": 8
   },
   "targets": {
@@ -24,8 +24,8 @@
     "evt120": "data/txt/event_120.csv",
     "evt_cat": "data/txt/event.cat",
     "evt_csv": "data/txt/event.csv",
+    "evt_lst": "data/txt/event.lst",
     "sta_csv": "data/txt/station.csv",
-    "evt_all_lst": "data/txt/event_all.lst",
     "cut_dir": "target/event_cut",
     "sac": "target/SAC",
     "path": "target/path",

@@ -68,7 +68,7 @@ impl Param {
             "og_data" => Ok(self.targets.get(TargetString::OgData)),
             "evt30" => Ok(self.targets.get(TargetString::Evt30)),
             "evt120" => Ok(self.targets.get(TargetString::Evt120)),
-            "evt_all_lst" => Ok(self.targets.get(TargetString::EvtAllLst)),
+            "evt_lst" => Ok(self.targets.get(TargetString::EvtLst)),
             "evt_cat" => Ok(self.targets.get(TargetString::EvtCat)),
             "evt_csv" => Ok(self.targets.get(TargetString::EvtCsv)),
             "sta_csv" => Ok(self.targets.get(TargetString::StaCsv)),

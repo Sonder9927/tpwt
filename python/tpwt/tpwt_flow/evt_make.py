@@ -1,5 +1,8 @@
 import datetime as dt
+import random
+from pathlib import Path
 
+import obspy
 import pandas as pd
 from icecream import ic
 
@@ -41,3 +44,32 @@ class EvtMaker:
         evt = self.evt[cols].copy()
         evt["time"] = evt["time"].apply(lambda x: self.time_convert(str(x)[:19], form))
         return evt
+
+
+def head_from_sac(sac_dir: str | Path) -> None:
+    all_names = set()
+    find_names = set()
+    evt_data = []
+    sta_data = []
+    for sac_file in Path(sac_dir).rglob("*.sac"):
+        [evt_name, sta_name, _] = sac_file.stem.split(".")
+        all_names |= {evt_name, sta_name}
+        if not all([evt_name in find_names, sta_name in find_names]):
+            stream = obspy.read(sac_file)
+            trace = stream[0]
+            head = trace.stats.sac
+            evlo = head["evlo"]
+            evla = head["evla"]
+            stlo = head["stlo"]
+            stla = head["stla"]
+            evmag = head.get("mag") or round(random.uniform(5.5, 9.0), 1)
+            evt_data.append([evt_name, evlo, evla, evmag])
+            sta_data.append([sta_name, stlo, stla])
+            find_names |= {evt_name, sta_name}
+
+    evdf = pd.DataFrame(evt_data, columns=["evt", "lo", "la", "mag"])
+    evdf.to_csv("event.csv", index=False)
+    stdf = pd.DataFrame(sta_data, columns=["sta", "lo", "la"])
+    stdf.to_csv("station.csv", index=False)
+    err_names = all_names - find_names
+    ic(err_names)

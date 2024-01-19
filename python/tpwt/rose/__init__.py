@@ -10,8 +10,10 @@ from tpwt.rose.rose_io import (
     remove_targets,
 )
 from tpwt.rose.rose_math import average, dicts_of_per_vel
+from tpwt.rose import path
 
 __all__ = [
+    "path",
     "get_binuse",
     "glob_patterns",
     "get_dirname",

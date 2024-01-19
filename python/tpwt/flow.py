@@ -47,13 +47,20 @@ def evt_cut(param):
 
 
 def sac_format(param):
-    sac = tpwt_flow.Sac_Format(
-        param.target("cut_dir"),
-        evt=param.target("evt_all_lst"),
-        sta=param.target("sta_lst"),
+    formatter = tpwt_flow.SacFormatter()
+    formatter.format(
+        param.target("sac"), evt=param.target("evt_csv"), sta=param.target("sta_csv")
     )
-    sac.make_sac(param.target("sac"))
-    sac.filter_event_lst(param.target("sac"), param.target("evt_lst"))
+
+
+def old_sac_format(param):
+    sac = tpwt_flow.SacFormater(
+        param.target("cut_dir"),
+        evt=param.target("evt_csv"),
+        sta=param.target("sta_csv"),
+    )
+    sac.format(param.target("sac"))
+    sac.filter_events(param.target("sac"), param.target("evt_lst"))
 
 
 def tpwt_check(data: str):
