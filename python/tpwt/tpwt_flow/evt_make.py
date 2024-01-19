@@ -42,7 +42,9 @@ class EvtMaker:
         if cols is None:
             cols = list(self.header)
         evt = self.evt[cols].copy()
-        evt["time"] = evt["time"].apply(lambda x: self.time_convert(str(x)[:19], form))
+        evt["time"] = evt["time"].apply(
+            lambda x: self.time_convert(str(x)[:19], form)
+        )
         return evt
 
 
@@ -54,22 +56,33 @@ def head_from_sac(sac_dir: str | Path) -> None:
     for sac_file in Path(sac_dir).rglob("*.sac"):
         [evt_name, sta_name, _] = sac_file.stem.split(".")
         all_names |= {evt_name, sta_name}
-        if not all([evt_name in find_names, sta_name in find_names]):
+        if evt_name not in find_names:
             stream = obspy.read(sac_file)
             trace = stream[0]
             head = trace.stats.sac
-            evlo = head["evlo"]
-            evla = head["evla"]
-            stlo = head["stlo"]
-            stla = head["stla"]
+            try:
+                evlo = head["evlo"]
+                evla = head["evla"]
+            except KeyError:
+                continue
             evmag = head.get("mag") or round(random.uniform(5.5, 9.0), 1)
             evt_data.append([evt_name, evlo, evla, evmag])
+            find_names.add(evt_name)
+        if sta_name not in find_names:
+            stream = obspy.read(sac_file)
+            trace = stream[0]
+            head = trace.stats.sac
+            try:
+                stlo = head["stlo"]
+                stla = head["stla"]
+            except KeyError:
+                continue
             sta_data.append([sta_name, stlo, stla])
-            find_names |= {evt_name, sta_name}
+            find_names.add(sta_name)
 
-    evdf = pd.DataFrame(evt_data, columns=["evt", "lo", "la", "mag"])
+    evdf = pd.DataFrame(evt_data, columns=["name", "lo", "la", "mag"])
     evdf.to_csv("event.csv", index=False)
-    stdf = pd.DataFrame(sta_data, columns=["sta", "lo", "la"])
+    stdf = pd.DataFrame(sta_data, columns=["name", "lo", "la"])
     stdf.to_csv("station.csv", index=False)
     err_names = all_names - find_names
     ic(err_names)

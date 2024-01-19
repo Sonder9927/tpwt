@@ -42,11 +42,11 @@ class SacHead:
     def __init__(self, evt, sta) -> None:
         evt = pd.read_csv(evt, dtype={"name": str}, index_col="name")
         sta = pd.read_csv(sta, index_col="name")
-        self.sites = pd.concat([evt, sta])
+        self.sites = pd.concat([sta, evt])
 
     def site(self, evt, sta):
-        evpos = self.sites[evt]
-        stpos = self.sites[sta]
+        stpos = self.sites.loc[sta]
+        evpos = self.sites.loc[evt]
         return evpos, stpos
 
     def ch_cmd(self, sac, evt, sta) -> str:
@@ -54,14 +54,14 @@ class SacHead:
         # ch evla, evlo, evdp(optional) and stla, stlo, stel(optional)
         s = "wild echo off \n"
         s += f"r {sac} \n"
-        s += f"ch evlo {evpos['evlo']}\n"
-        s += f"ch evla {evpos['evla']}\n"
-        if evpos.get("evdp") is not None:
-            s += f"ch evdp {evpos['evdp']}\n"
-        s += f"ch stlo {stpos['stlo']}\n"
-        s += f"ch stla {stpos['stla']}\n"
-        if stpos.get("stel") is not None:
-            s += f"ch stel {stpos['stel']}\n"
+        s += f"ch evlo {evpos['lo']}\n"
+        s += f"ch evla {evpos['la']}\n"
+        if evpos.get("dp") is not None:
+            s += f"ch evdp {evpos['dp']}\n"
+        s += f"ch stlo {stpos['lo']}\n"
+        s += f"ch stla {stpos['la']}\n"
+        if stpos.get("el") is not None:
+            s += f"ch stel {stpos['el']}\n"
         s += f"ch kcmpnm {self.channel}\n"
         s += f"ch kstnm {sta}\n"
         s += "wh \n"
@@ -77,6 +77,7 @@ class SacHead:
             if channel != self.channel:
                 sac = sac.rename(sac.parent / f"{evt}.{sta}.{self.channel}.sac")
             cmds = self.ch_cmd(sac, evt, sta)
+            ic(f"doing {sac.name=}")
             os.putenv("SAC_DISPLAY_COPYRIGHT", "0")
             subprocess.Popen(["sac"], stdin=subprocess.PIPE).communicate(cmds.encode())
 

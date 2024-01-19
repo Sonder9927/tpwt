@@ -47,8 +47,14 @@ def evt_cut(param):
 
 
 def sac_format(param):
-    formatter = tpwt_flow.SacFormatter()
-    formatter.format(
+    """format sac files
+    Args:
+        param (Param): param for tpwt program
+    Returns:
+        None
+    """
+    fmt = tpwt_flow.SacFormatter()
+    fmt.format(
         param.target("sac"), evt=param.target("evt_csv"), sta=param.target("sta_csv")
     )
 
