@@ -41,7 +41,7 @@ class SacHead:
 
     def __init__(self, evt, sta) -> None:
         evt = pd.read_csv(evt, dtype={"name": str}, index_col="name")
-        sta = pd.read_csv(sta, index_col="name")
+        sta = pd.read_csv(sta, dtype={"name": str}, index_col="name")
         self.sites = pd.concat([sta, evt])
 
     def site(self, evt, sta):
@@ -56,6 +56,7 @@ class SacHead:
         s += f"r {sac} \n"
         s += f"ch evlo {evpos['lo']}\n"
         s += f"ch evla {evpos['la']}\n"
+        s += f"ch mag {evpos['mag']}\n"
         if evpos.get("dp") is not None:
             s += f"ch evdp {evpos['dp']}\n"
         s += f"ch stlo {stpos['lo']}\n"
@@ -77,7 +78,7 @@ class SacHead:
             if channel != self.channel:
                 sac = sac.rename(sac.parent / f"{evt}.{sta}.{self.channel}.sac")
             cmds = self.ch_cmd(sac, evt, sta)
-            ic(f"doing {sac.name=}")
+            # ic(f"doing {sac.name=}")
             os.putenv("SAC_DISPLAY_COPYRIGHT", "0")
             subprocess.Popen(["sac"], stdin=subprocess.PIPE).communicate(cmds.encode())
 

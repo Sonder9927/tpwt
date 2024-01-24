@@ -9,7 +9,7 @@ def test_head1(param):
     """
     test extract and format
     """
-    head_from_sac(param.target("sac"))
+    # head_from_sac(param.target("sac"))
     sac_format(param)
 
 

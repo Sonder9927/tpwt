@@ -20,18 +20,21 @@ class Checker:
     def _bcheck_head(cls, sacs: list[Path]):
         err = dict(zip(cls.check_targets, [[]] * len(cls.check_targets)))
         for sac in sacs:
-            [evt, sta, cfn] = sac.stem.split(".")
+            ic(sac)
+            [evt, sta, clf] = sac.stem.split(".")
             st = obspy.read(sac)
             tr = st[0]
             head = tr.stats.sac
             # check channel
-            if cfn != head["KCMPNM"]:
+            cl = head.get("KCMPNM")
+            if any([clf != cls.channel, cl is None, cl != clf]):
                 err["channel"].append(sac)
-            # check evtn
-            if len(evt) != cls.evtn:
+            # check evt
+            if len(evt) != cls.evtn or evt != sac.parent.name:
                 err["evtn"].append(sac)
             # check sta
-            if sta != head["KSTNM"]:
+            hsta = head.get("KSTNM")
+            if hsta is None or sta != hsta:
                 err["sta"].append(sac)
             # check dist
             dist = head.get("dist")
@@ -66,14 +69,14 @@ class Checker:
         stas = pd.read_csv(
             sta_lst, header=None, delim_whitespace=True, usecols=[0], names=["name"]
         )
-        all_lst = evts["name"].tolist() + stas["names"].tolist()
+        all_lst = evts["name"].tolist() + stas["name"].tolist()
         with ThreadPoolExecutor(max_workers=20) as pl:
             futures = [pl.submit(_bcheck_lst, bs, all_lst) for bs in bsacs]
             for future in as_completed(futures):
                 res = future.result()
                 lst_err += res
         ic(lst_err)
-        df = evts[evts["mag"] < 5 or evts["mag"] > 9]
+        df = evts[(evts["mag"] < 5) | (evts["mag"] > 9)]
         mag_err = df["name"].tolist()
         ic(mag_err)
 
