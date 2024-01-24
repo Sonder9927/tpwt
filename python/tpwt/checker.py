@@ -31,14 +31,17 @@ class Checker:
                 err["channel"].append(sac)
             # check evt
             if len(evt) != cls.evtn or evt != sac.parent.name:
+                ic(evt, sac.parent.name)
                 err["evtn"].append(sac)
             # check sta
             hsta = head.get("KSTNM")
             if hsta is None or sta != hsta:
+                ic(sta, hsta)
                 err["sta"].append(sac)
             # check dist
             dist = head.get("dist")
             if any([dist is None, dist < cls.d30, dist > cls.d120]):
+                ic(dist)
                 err["dist"].append(sac)
         return err
 
@@ -53,7 +56,9 @@ class Checker:
                 res = future.result()
                 for k, v in res.items():
                     err[k] += v
-        ic(err)
+        for k, v in err.items():
+            ic(k)
+            ic(v)
 
     def check_lst(self, sac_dir, *, evt_lst, sta_lst):
         lst_err = []
