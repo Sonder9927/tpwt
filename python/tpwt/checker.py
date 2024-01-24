@@ -52,7 +52,7 @@ class Checker:
                     err[k] += v
         ic(err)
 
-    def check_lst(self, sac_dir, evt_lst, sta_lst):
+    def check_lst(self, sac_dir, *, evt_lst, sta_lst):
         lst_err = []
         sacs = list(Path(sac_dir).rglob("*.sac"))
         bsacs = [sacs[i : i + 1000] for i in range(0, len(sacs), 1000)]
