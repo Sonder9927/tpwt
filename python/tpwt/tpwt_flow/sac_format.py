@@ -39,9 +39,9 @@ class Pos:
 class SacHead:
     channel = "LHZ"
 
-    def __init__(self, evt, sta) -> None:
-        evt = pd.read_csv(evt, dtype={"name": str}, index_col="name")
-        sta = pd.read_csv(sta, dtype={"name": str}, index_col="name")
+    def __init__(self, evf, stf) -> None:
+        evt = pd.read_csv(evf, dtype={"name": str}, index_col="name")
+        sta = pd.read_csv(stf, dtype={"name": str}, index_col="name")
         self.sites = pd.concat([sta, evt])
 
     def site(self, evt, sta):
@@ -92,9 +92,9 @@ class SacFormatter:
         target = path.remake(dir)
         ic(target)
 
-    def format(self, dir: str, *, evt, sta):
+    def format(self, dir: str, *, evf, stf):
         sacs = list(Path(dir).rglob("*.sac"))
-        head = SacHead(evt, sta)
+        head = SacHead(evf, stf)
         size = 1000
         bsacs = [sacs[i : i + size] for i in range(0, len(sacs), size)]
         with ProcessPoolExecutor(max_workers=10) as pool:

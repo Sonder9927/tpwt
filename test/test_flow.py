@@ -1,16 +1,18 @@
-from tpwt import evt_files, sac_format, head_from_sac
+from tpwt import SacFormatter
+from tpwt import evt_files
 from tpwt import rs
 
 
 def test_evt_files(param):
     evt_files(param)
 
+
 def test_head1(param):
     """
     test extract and format
     """
-    # head_from_sac(param.target("sac"))
-    sac_format(param)
+    fmt = SacFormatter()
+    fmt.format(dir="../sac", evf=param.target("evt_csv"), stf=param.target("sta_csv"))
 
 
 if __name__ == "__main__":
