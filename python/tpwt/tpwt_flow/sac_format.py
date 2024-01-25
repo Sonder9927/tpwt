@@ -17,7 +17,7 @@ Then add information of both event and station to head of sac files in SAC direc
 import os
 import shutil
 import subprocess
-from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import pandas as pd
@@ -69,10 +69,11 @@ class SacHead:
         s += "q \n"
         return s
 
-    def re_ch_sacs(self, sacs: list[Path]):
+    def re_ch_sacs(self, sacs: list[Path]) -> list[str]:
         """
         change head of sac file to generate dist information
         """
+        err_sacs = []
         for sac in tqdm(sacs):
             [evt, sta, channel] = sac.stem.split(".")
             if channel != self.channel:
@@ -84,7 +85,9 @@ class SacHead:
                     cmds.encode()
                 )
             except Exception:
+                err_sacs.append(str(sac))
                 ic("err:", str(sac))
+        return err_sacs
 
 
 class SacFormatter:
@@ -102,8 +105,15 @@ class SacFormatter:
         head = SacHead(evf, stf)
         size = 10_000
         bsacs = [sacs[i : i + size] for i in range(0, len(sacs), size)]
+        err_sacs = []
         with ProcessPoolExecutor(max_workers=10) as pool:
+            futures = [pool.submit(head.re_ch_sacs, bs) for bs in bsacs]
+            for future in as_completed(futures):
+                res = future.result()
+                err_sacs += res
+
             pool.map(head.re_ch_sacs, bsacs)
+        return err_sacs
 
 
 class oldSacFormatter:
