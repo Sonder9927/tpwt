@@ -2,6 +2,7 @@ secrets
 
 # temp files
 temp*
+log
 
 # docs
 site/
