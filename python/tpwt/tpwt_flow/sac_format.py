@@ -14,15 +14,15 @@ Then add information of both event and station to head of sac files in SAC direc
 # created: 6th April 2022
 # version: 2.0
 
-
 import os
 import shutil
 import subprocess
-from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
 from pathlib import Path
 
 import pandas as pd
 from icecream import ic
+from tqdm import tqdm
 
 from tpwt.rose import glob_patterns, path, re_create_dir
 
@@ -73,12 +73,11 @@ class SacHead:
         """
         change head of sac file to generate dist information
         """
-        for sac in sacs:
+        for sac in tqdm(sacs):
             [evt, sta, channel] = sac.stem.split(".")
             if channel != self.channel:
                 sac = sac.rename(sac.parent / f"{evt}.{sta}.{self.channel}.sac")
             cmds = self.ch_cmd(sac, evt, sta)
-            # ic(f"doing {sac.name=}")
             os.putenv("SAC_DISPLAY_COPYRIGHT", "0")
             subprocess.Popen(["sac"], stdin=subprocess.PIPE).communicate(cmds.encode())
 
