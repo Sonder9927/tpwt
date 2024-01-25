@@ -1,6 +1,7 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 import pandas as pd
+from tqdm import tqdm
 
 import obspy
 from icecream import ic
@@ -26,7 +27,7 @@ class Checker:
     @classmethod
     def _bcheck_head(cls, sacs: list[Path]) -> dict[str, list[str]]:
         err = cls._err_dict()
-        for sac in sacs:
+        for sac in tqdm(sacs):
             [evt, sta, clf] = sac.stem.split(".")
             st = obspy.read(sac)
             tr = st[0]
@@ -67,7 +68,7 @@ class Checker:
         head_err = self._err_dict()
         sacs = list(Path(sac_dir).rglob("*.sac"))
         bsacs = [sacs[i : i + 10000] for i in range(0, len(sacs), 10000)]
-        with ThreadPoolExecutor(max_workers=20) as pl:
+        with ThreadPoolExecutor(max_workers=10) as pl:
             futures = [pl.submit(self._bcheck_head, bs) for bs in bsacs]
             for future in as_completed(futures):
                 res = future.result()

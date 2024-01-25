@@ -57,6 +57,7 @@ requests==2.31.0
 scipy==1.11.4
 six==1.16.0
 sqlalchemy==2.0.25
+tqdm==4.66.1
 typing-extensions==4.9.0
 tzdata==2023.4
 urllib3==2.1.0
