@@ -95,11 +95,10 @@ class SacFormatter:
     def format(self, dir: str, *, evf, stf):
         sacs = list(Path(dir).rglob("*.sac"))
         head = SacHead(evf, stf)
-        size = 1000
+        size = 10_000
         bsacs = [sacs[i : i + size] for i in range(0, len(sacs), size)]
         with ProcessPoolExecutor(max_workers=10) as pool:
-            for bs in bsacs:
-                pool.submit(head.re_ch_sacs, bs)
+            pool.map(head.re_ch_sacs, bsacs)
 
 
 class oldSacFormatter:

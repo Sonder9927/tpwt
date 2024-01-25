@@ -1,4 +1,4 @@
-from tpwt import SacFormatter
+from tpwt.tpwt_flow import SacFormatter
 from tpwt import evt_files
 from tpwt import rs
 
