@@ -78,8 +78,13 @@ class SacHead:
             if channel != self.channel:
                 sac = sac.rename(sac.parent / f"{evt}.{sta}.{self.channel}.sac")
             cmds = self.ch_cmd(sac, evt, sta)
-            os.putenv("SAC_DISPLAY_COPYRIGHT", "0")
-            subprocess.Popen(["sac"], stdin=subprocess.PIPE).communicate(cmds.encode())
+            try:
+                os.putenv("SAC_DISPLAY_COPYRIGHT", "0")
+                subprocess.Popen(["sac"], stdin=subprocess.PIPE).communicate(
+                    cmds.encode()
+                )
+            except Exception:
+                ic("err:", str(sac))
 
 
 class SacFormatter:
