@@ -1,11 +1,13 @@
+import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
-import pandas as pd
-from tqdm import tqdm
 
 import obspy
+import pandas as pd
 from icecream import ic
-import json
+from tqdm import tqdm
+
+from tpwt.rose import path
 
 
 class Checker:
@@ -14,7 +16,7 @@ class Checker:
     d30 = 111 * 30
     d120 = 111 * 120
     check_targets = ("channel", "evtn", "sta", "dist")
-    check_log = Path("log/check_log.json")
+    check_log = "target/log/check_log.json"
 
     def __init__(self) -> None:
         self.info: list[dict[str, list[str]]] = []
@@ -59,7 +61,7 @@ class Checker:
         return {name for name in names if name not in lst_names}
 
     def log_info(self, outfile=None) -> None:
-        ff = outfile or self.check_log
+        ff = outfile or path.refile(self.check_log)
         with open(ff, "w") as f:
             json.dump(self.info, f, indent=2)
         ic(f"see log file: {ff}")

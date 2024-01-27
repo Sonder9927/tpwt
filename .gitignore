@@ -2,7 +2,6 @@ secrets
 
 # temp files
 temp*
-log
 
 # docs
 site/
@@ -20,6 +19,9 @@ wheels/
 *.egg-info
 # Rust
 target/
+# support config
+.better-commits.json
+
 
 # venv
 .venv
