@@ -1,0 +1,39 @@
+# config toml for example
+[parameters]
+snr = 10
+tmisfit = 8
+nsta = 10
+cut_per = 0.7
+inverse = { damping = 0.2, smooth = 90 }
+time_delta = 10800
+dist = 3500
+ampcut = 2
+tevtrmscut = 8.0
+ampevtrmscut = 1.0
+dcheck = 2
+dvel = 8
+channel = "LHZ"
+
+[paths]
+og_data = "data/og_data"
+evt30 = "data/txt/event_30.csv"
+evt120 = "data/txt/event_120.csv"
+evt_cat = "data/txt/event.cat"
+evt_csv = "data/txt/event.csv"
+evt_lst = "data/txt/event.lst"
+sta_csv = "data/txt/station.csv"
+phv_csv = "data/txt/phv.csv"
+event_dir = "data/events"
+sac_dir = "data/SAC"
+path = "data/path"
+all_events_dir = "data/all_events"
+sens_dir = "data/sens_dir"
+mcmc_dir = "data/mcmc"
+
+[model]
+name = "nz"
+phvs = [[20, 3.31], [25, 3.32], [30, 3.38], [35, 3.48], [40, 3.51], [45, 3.52],
+      [50, 3.53], [60, 3.56], [70, 3.59], [80, 3.62], [90, 3.65], [100, 3.68],
+      [111, 3.71], [125, 3.74], [135, 3.76], [143, 3.78]]
+region = { west = 174.0, east = 179.0, sourth = -41.5, north = -34.0 }
+ref_sta = [177.65, -38.0]

@@ -1,0 +1,25 @@
+[project]
+name = "tpwt"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Sonder Merak", email = "merak19981999@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "pandas>=2.2.3",
+    "tomli>=2.2.1",
+]
+
+[project.scripts]
+tpwt = "tpwt:main"
+
+[tool.maturin]
+module-name = "tpwt._core"
+python-packages = ["tpwt"]
+python-source = "src"
+
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
