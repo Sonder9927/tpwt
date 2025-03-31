@@ -2,7 +2,7 @@ import pandas as pd
 import pygmt
 
 
-def _plot_region(name, region, sta_df):
+def _plot_region(region, sta_df):
     fig = pygmt.Figure()
     pygmt.config(MAP_FRAME_TYPE="plain")
     fig.basemap(

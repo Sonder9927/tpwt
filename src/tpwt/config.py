@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import tomli
+from .math import make_hull_files
 
 
 class ConfigLoader:
@@ -19,3 +20,9 @@ class ConfigLoader:
     def region_list(self):
         region = self.model["region"]
         return [region["west"], region["east"], region["south"], region["north"]]
+
+    def periods(self) -> list[int]:
+        return sorted([i[0] for i in self.model["phvs"]])
+
+    def make_hull_files(self):
+        make_hull_files(region=self.region_list(), sta_csv=self.paths["sta_csv"])
