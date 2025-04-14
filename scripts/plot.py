@@ -7,8 +7,9 @@ def main():
     plt = tpwt.Ploter(cfg)
     # plt.plot_region()
     # plt.plot_phase_velocities(clip=True)
-    for per in [20, 25, 30, 40, 50, 60, 70, 80, 90, 100, 120, 140]:
-        plt.plot_phase_velocity(per, clip=True, phv_csv="data/txt/aswms_phv.csv")
+    for per in [50, 60, 80, 100]:
+        plt.plot_phase_velocity(per, clip=True, phv_csv="data/txt/phv.csv")
+    # plt.plot_diff(period=60, csvf="data/txt/aswms_phv.csv", clip=True, ave=True)
 
 
 if __name__ == "__main__":

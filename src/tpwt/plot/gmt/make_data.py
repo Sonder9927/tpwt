@@ -119,14 +119,16 @@ def tomo_grid(data, region, outfile=None, **spacings) -> pd.DataFrame:
 
 
 ###############################################################################
-def mean_over_clipped(data, hull) -> pd.DataFrame:
+def mean_over_clipped(data, hull="data/plot/hull.nc") -> pd.DataFrame:
     clipped_df = area_clip(data, hull)
     mm = clipped_df["z"].mean()
     data["z"] = (data["z"] - mm) / mm * 100
     return data
 
 
-def area_clip(data, hull: str, *, region=None, spacing=0.01) -> pd.DataFrame:
+def area_clip(
+    data, hull="data/plot/hull.nc", *, region=None, spacing=0.01
+) -> pd.DataFrame:
     if not Path(hull).exists():
         raise FileNotFoundError(f"No file: {hull}")
 
@@ -135,9 +137,9 @@ def area_clip(data, hull: str, *, region=None, spacing=0.01) -> pd.DataFrame:
     clipped_data = pygmt.select(data, polygon=hull)
     if clipped_data is None:
         raise ValueError("Nothing were selected.")
-    if region is not None:
-        return pygmt.xyz2grd(data=clipped_data, region=region, spacing=spacing)
-    return clipped_data
+    if region is None:
+        return clipped_data
+    return pygmt.xyz2grd(data=clipped_data, region=region, spacing=spacing)
 
 
 def clipped_df(df, hull, *, region=None, ave=False):

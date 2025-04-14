@@ -7,7 +7,7 @@ from .make_data import area_clip
 
 class GmtFigger:
     gra = None
-    data = Path("data")
+    data = Path("data/plot")
 
     def __init__(self, fig, topo, *, projection=None, frame=None):
         self.fig = fig
@@ -60,8 +60,11 @@ class GmtFigger:
     def tomos(self, tomos: list[dict], *, clip=None):
         for tomo in tomos:
             if clip:
-                tomo["grid"] = area_clip(tomo["grid"], hull="data/plot/hull.nc", region=self.region)
-            self.fig.grdimage(**tomo, shading=self.gra, nan_transparent=True)
+                tomo["grid"] = area_clip(
+                    tomo["grid"], hull="data/plot/hull.nc", region=self.region
+                )
+            # self.fig.grdimage(**tomo, shading=self.gra, nan_transparent=True)
+            self.fig.grdimage(**tomo, nan_transparent=True)
 
     def tects(self, plot_id: int | None, text_file: str | None):
         # plot tects and elements like sta basalt volcano

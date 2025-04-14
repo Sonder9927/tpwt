@@ -2,7 +2,7 @@ import pandas as pd
 import pygmt
 
 
-def _plot_region(region, sta_df):
+def plot_region_fig(sta_df, region, fname: str):
     fig = pygmt.Figure()
     pygmt.config(MAP_FRAME_TYPE="plain")
     fig.basemap(
@@ -34,4 +34,5 @@ def _plot_region(region, sta_df):
         )
     # fig.colorbar(frame=["a1000", "x+lElevation", "y+lm"])
     fig.legend(transparency=30)
-    return fig
+    fig.savefig(fname)
+    print(f"Saved fig -> {fname}")
