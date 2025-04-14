@@ -24,15 +24,18 @@ def inverse(config_toml: str):
 
 def quanlity_control(config: TPWTConfig):
     binpath = config.paths.get("binpath", Path("TPWT/bin"))
-    evt_df = pd.read_csv(config.paths["evt_csv"])
-    sta_df = pd.read_csv(config.paths["sta_csv"])
     path_dir = Path("outputs/path")
 
     calculate_dispersion(
-        evt_df=evt_df, sta_df=sta_df, path_dir=path_dir, binpath=binpath
+        evt_csv=str(config.paths["evt_csv"]),
+        sta_csv=str(config.paths["sta_csv"]),
+        path_dir=path_dir,
+        binpath=binpath,
     )
     aftan_snr(sac_dir=config.paths["sac_dir"], path_dir=path_dir, binpath=binpath)
 
+    evt_df = pd.read_csv(config.paths["evt_csv"])
+    sta_df = pd.read_csv(config.paths["sta_csv"])
     ph_amp_dir = Path("outputs/ph_amp_dir")
     phase_amplitude(
         config.periods(),

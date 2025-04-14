@@ -1,11 +1,11 @@
-from tpwt._core import hello_from_bin
+import tpwt._core as libtpwt
 from tpwt.config import TPWTConfig
 from tpwt.inverse import inverse, quanlity_control, tpwt_iter
 from tpwt.plot import Ploter
 
 
 def main() -> None:
-    print(hello_from_bin())
+    print(libtpwt.hello_from_rust())
 
 
-__all__ = ["TPWTConfig", "quanlity_control", "tpwt_iter", "inverse", "Ploter"]
+__all__ = ["TPWTConfig", "quanlity_control", "tpwt_iter", "inverse", "Ploter", "libtpwt"]

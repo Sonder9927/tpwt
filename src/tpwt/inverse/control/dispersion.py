@@ -5,6 +5,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from tpwt._core import make_pathfile
 from tpwt.utils.pather import binuse
 
 LOVE = "TPWT/utils/LOVE_400_100.disp"
@@ -12,8 +13,10 @@ RAYL = "TPWT/utils/RAYL_320_80_32000_8000.disp"
 
 
 def calculate_dispersion(
-    evt_df: pd.DataFrame,
-    sta_df: pd.DataFrame,
+    # evt_df: pd.DataFrame,
+    # sta_df: pd.DataFrame,
+    evt_csv: str,
+    sta_csv: str,
     path_dir: Path = Path("path"),
     binpath: Path = Path("TPWT/bin"),
     disps: list[str] = [LOVE, RAYL],
@@ -26,7 +29,9 @@ def calculate_dispersion(
     for disp in disps:
         shutil.copy(disp, "./")
     # mk_pathfile makes file pathfile
-    pathfile = _make_pathfile_TPWT(evt_df, sta_df)
+
+    pathfile = "outputs/pathfile"
+    pathfile = make_pathfile(evt_csv, sta_csv, pathfile)
     # create tempinp using for GDM52_dispersion_TPWT
     tempinp = "tempinp"
     create_tempinp(pathfile, tempinp)

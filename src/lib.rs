@@ -1,8 +1,9 @@
+use mkfiles::make_pathfile;
 use pyo3::prelude::*;
 
 #[pyfunction]
-fn hello_from_bin() -> String {
-    "Hello from tpwt!".to_string()
+fn hello_from_rust() -> String {
+    "Hello tpwt from Rust!".to_string()
 }
 
 /// A Python module implemented in Rust. The name of this function must match
@@ -10,6 +11,7 @@ fn hello_from_bin() -> String {
 /// import the module.
 #[pymodule]
 fn _core(m: &Bound<'_, PyModule>) -> PyResult<()> {
-    m.add_function(wrap_pyfunction!(hello_from_bin, m)?)?;
+    m.add_function(wrap_pyfunction!(hello_from_rust, m)?)?;
+    m.add_function(wrap_pyfunction!(make_pathfile, m)?)?;
     Ok(())
 }
