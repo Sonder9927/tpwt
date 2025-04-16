@@ -2,10 +2,9 @@ import shutil
 import subprocess
 from pathlib import Path
 
-import numpy as np
-import pandas as pd
+# import numpy as np
+# import pandas as pd
 
-from tpwt._core import make_cor_pred_files, make_pathfile
 from tpwt.utils.pather import binuse
 
 LOVE = "TPWT/utils/LOVE_400_100.disp"
@@ -19,6 +18,8 @@ def calculate_dispersion(
     binpath: Path = Path("TPWT/bin"),
     disps: list[str] = [LOVE, RAYL],
 ):
+    from tpwt._core import make_cor_pred_files, make_pathfile
+
     if path_dir.exists():
         print(f"{path_dir} exists, skip calculate dispersion.")
         return
@@ -60,41 +61,41 @@ def create_tempinp(pathfile: str, tempinp: str):
         f.write("\n99")
 
 
-def _make_pathfile(evt_df: pd.DataFrame, sta_df: pd.DataFrame) -> str:
-    """
-    mk_pathfile makes file pathfile
-    format: n1 n2 evt sta xlat1 xlon1 xlat2 xlon2
-    """
-    pathfile = "pathfile"
-    convdeg = np.pi / 180
-    erad = 6371
-    itemp = 6
+# def _make_pathfile(evt_df: pd.DataFrame, sta_df: pd.DataFrame) -> str:
+#     """
+#     mk_pathfile makes file pathfile
+#     format: n1 n2 evt sta xlat1 xlon1 xlat2 xlon2
+#     """
+#     pathfile = "pathfile"
+#     convdeg = np.pi / 180
+#     erad = 6371
+#     itemp = 6
 
-    def d(la):
-        return convdeg * (90 - la)
+#     def d(la):
+#         return convdeg * (90 - la)
 
-    contents = []
-    for i in range(len(evt_df)):
-        for j in range(len(sta_df)):
-            la1 = evt_df.latitude[i]
-            la2 = sta_df.latitude[j]
-            lo1 = evt_df.longitude[i]
-            lo2 = sta_df.longitude[j]
-            rad = np.cos(d(la1)) * np.cos(d(la2)) + np.sin(d(la1)) * np.sin(
-                d(la2)
-            ) * np.cos(convdeg * (lo1 - lo2))
+#     contents = []
+#     for i in range(len(evt_df)):
+#         for j in range(len(sta_df)):
+#             la1 = evt_df.latitude[i]
+#             la2 = sta_df.latitude[j]
+#             lo1 = evt_df.longitude[i]
+#             lo2 = sta_df.longitude[j]
+#             rad = np.cos(d(la1)) * np.cos(d(la2)) + np.sin(d(la1)) * np.sin(
+#                 d(la2)
+#             ) * np.cos(convdeg * (lo1 - lo2))
 
-            dist = np.arccos(rad) * erad
+#             dist = np.arccos(rad) * erad
 
-            content = f"{itemp:>12}\n"
-            content += f"{i + 1:>5}{j + 1:>5} "
-            content += f"{evt_df.time[i]:<18} {sta_df.station[j]:<8}"
-            content += f"{la1:10.4f}{lo1:10.4f}"
-            content += f"{la2:10.4f}{lo2:10.4f}"
-            content += f"{dist:12.2f}\n"
-            contents.append(content)
+#             content = f"{itemp:>12}\n"
+#             content += f"{i + 1:>5}{j + 1:>5} "
+#             content += f"{evt_df.time[i]:<18} {sta_df.station[j]:<8}"
+#             content += f"{la1:10.4f}{lo1:10.4f}"
+#             content += f"{la2:10.4f}{lo2:10.4f}"
+#             content += f"{dist:12.2f}\n"
+#             contents.append(content)
 
-    with open(pathfile, "w+") as f:
-        f.writelines(contents)
+#     with open(pathfile, "w+") as f:
+#         f.writelines(contents)
 
-    return pathfile
+#     return pathfile

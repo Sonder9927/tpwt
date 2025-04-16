@@ -10,6 +10,22 @@ from .iterate import inverse_iter, make_eqlist, make_gridnode
 
 
 def tpwt_iter(config: TPWTConfig):
+    """tpwt iterate, contains twice iterate.
+
+    Parameters:
+        config: tpwt config
+
+    Examples:
+        ```python
+        import tpwt
+
+        cfg = tpwt.TPWTConfig(config_toml)
+        tpwt.tpwt_iter(cfg)
+        ```
+
+    Note:
+        Not complete!
+    """
     method = _valid_method(config.params.get("method"))
     eqlist, gridnode, stationid = _make_iter_files(config)
     binpath = config.paths.get("binpath", Path("TPWT/bin"))
@@ -17,12 +33,44 @@ def tpwt_iter(config: TPWTConfig):
 
 
 def inverse(config_toml: str):
+    """tpwt inverse
+
+    tpwt inverse, contains two steps:
+        1. quanlity control
+        2. tpwt iterate
+
+    Parameters:
+        config_toml: tpwt config file in toml format
+
+    Examples:
+        ```python
+        import tpwt
+        tpwt.inverse("config.toml")
+        ```
+
+    Note:
+        Not complete!
+    """
     cfg = TPWTConfig(config_toml)
     quanlity_control(cfg)
     tpwt_iter(cfg)
 
 
 def quanlity_control(config: TPWTConfig):
+    """
+    tpwt quanlity control.
+
+    Parameters:
+        config: tpwt config
+
+    Examples:
+        ```python
+        import tpwt
+
+        cfg = tpwt.TPWTConfig(config_toml)
+        tpwt.quanlity_control(cfg)
+        ```
+    """
     binpath = config.paths.get("binpath", Path("TPWT/bin"))
     path_dir = Path("outputs/path")
 

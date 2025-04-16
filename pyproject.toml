@@ -27,3 +27,18 @@ python-source = "src"
 [build-system]
 requires = ["maturin>=1.0,<2.0"]
 build-backend = "maturin"
+
+[dependency-groups]
+dev = [
+    "ipython>=9.1.0",
+    "mkdocs>=1.6.1",
+    "mkdocs-jupyter>=0.25.1",
+    "mkdocs-material[imaging]>=9.6.11",
+    "mkdocstrings[python]>=0.29.1",
+    "pygments>=2.19.1",
+    "taskipy>=1.14.1",
+    "termynal>=0.13.0",
+]
+
+[tool.taskipy.tasks]
+pdocs = "mkdocs serve"

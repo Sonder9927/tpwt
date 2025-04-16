@@ -1,0 +1,157 @@
+site_name: TPWT
+copyright: Copyright &copy:; 2021 - 2025 Sonder Merak
+
+repo_name: sonder9927/tpwt
+repo_url: https://github.com/sonder9927/tpwt
+
+theme:
+  name: "material"
+  features:
+    # - content.action.edit
+    # - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.tooltips
+    - content.tabs.link
+    - navigation.footer
+    - navigation.indexes
+    - navigation.top
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - toml
+    - rust
+    - python
+  analytics:
+    gtag: G-ABC123
+  navigation_depth: 4
+  collapse_navigation: true
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue-grey
+      accent: blue-grey
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue-grey
+      accent: blue-grey
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+nav:
+  - Home:
+      - tpwt: index.md
+  - User Guide:
+      - user-guide/index.md
+      - user-guide/installation.md
+      - user-guide/tutorial/tutorial.ipynb
+  - API Reference:
+      - tpwt:
+          - api/index.md
+      - tpwt.classes:
+          - api/tpwt/classes/index.md
+      - tpwt.functions:
+          - api/tpwt/functions/index.md
+      - tpwt.tools:
+          - api/tpwt/tools/index.md
+          - noise: api/tpwt/tools/noise.md
+          - plotutils: api/tpwt/tools/plotutils.md
+      - libtpwt:
+          - api/lib/index.md
+
+extra_css:
+  - css/material.css
+  - css/mkdocstrings.css
+
+extra:
+  version:
+    provider: mike
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: "#"
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search:
+      lang: en
+  - autorefs
+  - mkdocs-jupyter
+  - termynal:
+      prompt_literal_start:
+        - "$"
+        - ">>>"
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [src.tpwt]
+          options:
+            allow_inspection: true
+            backlinks: tree
+            docstring_section_style: list
+            docstring_style: google
+            docstring_options:
+              ignore_init_summary: true
+              trim_doctest_flags: true
+            # group_by_category: true
+            heading_level: 2
+            inherited_members: true
+            line_length: 79
+            # show_category_heading: true
+            merge_init_into_class: true
+            # separate_signature: true
+            modernize_annotations: true
+            parameter_headings: false
+            separate_signature: true
+            # show_source: false
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            # show_if_no_docstring: false
+            show_inheritance_diagram: true
+            show_overloads: false
+            show_signature_annotations: true
+            signature_crossrefs: true
+          import:
+            - https://docs.python.org/3/objects.inv
+            - https://mypy.readthedocs.io/en/stable/objects.inv
+            - https://numpy.org/doc/stable/objects.inv
+            - https://docs.scipy.org/doc/scipy/objects.inv
+            - https://pip.pypa.io/en/stable/objects.inv
+            - https://docs.pytest.org/en/stable/objects.inv
+            - https://pytest-mpl.readthedocs.io/en/latest/objects.inv
+            - https://matplotlib.org/stable/objects.inv
+            - https://flake8.pycqa.org/en/latest/objects.inv
+            - https://www.mkdocs.org/objects.inv
+            - https://pyproj4.github.io/pyproj/stable/objects.inv
+            - https://attrs.org/en/stable/objects.inv
+

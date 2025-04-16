@@ -1,6 +1,6 @@
 import tpwt._core as libtpwt
 from tpwt.config import TPWTConfig
-from tpwt.inverse import inverse, quanlity_control, tpwt_iter
+from tpwt.inversion import inverse, quanlity_control, tpwt_iter
 from tpwt.plot import Ploter
 
 

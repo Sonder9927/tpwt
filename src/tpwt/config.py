@@ -1,3 +1,6 @@
+"""
+TPWT Config
+"""
 from pathlib import Path
 
 import pandas as pd
@@ -7,7 +10,22 @@ from scipy.spatial import ConvexHull
 
 
 class TPWTConfig:
-    def __init__(self, config_toml: str, greeting=True) -> None:
+    """TPWT config"""
+
+    def __init__(self, config_toml: str, greeting: bool = True) -> None:
+        """
+        create tpwt config
+
+        Parameters:
+            config_toml: config file in toml format
+            greeting: if print greeting message
+
+        Example:
+            ```python
+            >>> from tpwt import TPWTConfig
+            >>> cfg = TPWTConfig("config.toml")
+            ```
+        """
         with open(config_toml, "rb") as f:
             config = tomli.load(f)
         self.params = config["parameters"]
