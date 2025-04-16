@@ -11,7 +11,7 @@ def binuse(command: str, binpath: Path = Path("bin/")) -> Path:
     Returns:
         target path of bin command
     """
-    cmdbin = Path(binpath) / "TPWT/bin" / command
+    cmdbin = binpath / command
     if not cmdbin.exists():
         err = f"The binary {cmdbin} doesn't exist."
         raise FileNotFoundError(err)

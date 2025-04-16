@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from tpwt._core import make_pathfile
+from tpwt._core import make_cor_pred_files, make_pathfile
 from tpwt.utils.pather import binuse
 
 LOVE = "TPWT/utils/LOVE_400_100.disp"
@@ -13,56 +13,54 @@ RAYL = "TPWT/utils/RAYL_320_80_32000_8000.disp"
 
 
 def calculate_dispersion(
-    # evt_df: pd.DataFrame,
-    # sta_df: pd.DataFrame,
     evt_csv: str,
     sta_csv: str,
-    path_dir: Path = Path("path"),
+    path_dir: Path,
     binpath: Path = Path("TPWT/bin"),
     disps: list[str] = [LOVE, RAYL],
 ):
-    # re-create directory 'path'
     if path_dir.exists():
-        print(f"{path_dir} exists, skipp calculate dispersion.")
+        print(f"{path_dir} exists, skip calculate dispersion.")
         return
+    path_dir.mkdir(parents=True)
+
+    pathfile = "outputs/pathfile"
+    make_pathfile(evt_csv, sta_csv, pathfile)
+    # create tempinp using for GDM52_dispersion_TPWT
+    tempinp = "outputs/tempinp"
+    create_tempinp(pathfile, tempinp)
+
     # cp disp model
     for disp in disps:
         shutil.copy(disp, "./")
-    # mk_pathfile makes file pathfile
-
-    pathfile = "outputs/pathfile"
-    pathfile = make_pathfile(evt_csv, sta_csv, pathfile)
-    # create tempinp using for GDM52_dispersion_TPWT
-    tempinp = "tempinp"
-    create_tempinp(pathfile, tempinp)
-
     # calculate dispersion
     dispersion_out = "GDM52_dispersion.out"
     dispersion_TPWT = binuse("GDM52_dispersion_TPWT", binpath=binpath)
-    gen_cor_pred_TPWT = binuse("gen_cor_pred_TPWT", binpath=binpath)
+    # gen_cor_pred_TPWT = binuse("gen_cor_pred_TPWT", binpath=binpath)
 
     cmd_string = "echo shell start\n"
-    cmd_string += f"{dispersion_TPWT} < tempinp\n"
-    cmd_string += f"{gen_cor_pred_TPWT} {dispersion_out} {path_dir}\n"
-    cmd_string += f"rm {pathfile} {tempinp} *.disp\n"
+    cmd_string += f"{dispersion_TPWT} < {tempinp}\n"
+    # cmd_string += f"{gen_cor_pred_TPWT} {dispersion_out} {path_dir}\n"
+    cmd_string += f"rm {tempinp} *.disp\n"
     cmd_string += "echo shell end"
     subprocess.Popen(["bash"], stdin=subprocess.PIPE).communicate(cmd_string.encode())
 
+    make_cor_pred_files(dispersion_out, str(path_dir))
     shutil.move(dispersion_out, path_dir)
 
 
 ###############################################################################
 
 
-def create_tempinp(pathfile, tempinp: str):
+def create_tempinp(pathfile: str, tempinp: str):
     with open(tempinp, "w+") as f:
         f.write("77\n")
         with open(pathfile, "r") as p:
             shutil.copyfileobj(p, f)
-        f.write("99")
+        f.write("\n99")
 
 
-def _make_pathfile_TPWT(evt_df: pd.DataFrame, sta_df: pd.DataFrame) -> str:
+def _make_pathfile(evt_df: pd.DataFrame, sta_df: pd.DataFrame) -> str:
     """
     mk_pathfile makes file pathfile
     format: n1 n2 evt sta xlat1 xlon1 xlat2 xlon2

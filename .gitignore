@@ -1,6 +1,8 @@
+outputs
 data
 images
 temp
+TPWT
 # Python-generated files
 __pycache__/
 *.py[oc]
