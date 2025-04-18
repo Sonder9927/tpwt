@@ -57,8 +57,13 @@ def inverse(config_toml: str):
 
 
 def quanlity_control(config: TPWTConfig):
-    """
-    tpwt quanlity control.
+    """tpwt quanlity control.
+
+    Steps:
+        1. calculate dispersion
+        2. calculate aftan snr
+        3. calculate distance
+        4. calculate phase amplitude
 
     Parameters:
         config: tpwt config
@@ -82,14 +87,12 @@ def quanlity_control(config: TPWTConfig):
     )
     aftan_snr(sac_dir=config.paths["sac_dir"], path_dir=path_dir, binpath=binpath)
 
-    evt_df = pd.read_csv(config.paths["evt_csv"])
-    sta_df = pd.read_csv(config.paths["sta_csv"])
     ph_amp_dir = Path("outputs/ph_amp_dir")
     phase_amplitude(
         config.periods(),
         config.paths["sac_dir"],
-        evt_df,
-        sta_df,
+        evt_csv=str(config.paths["evt_csv"]),
+        sta_csv=str(config.paths["sta_csv"]),
         ph_amp_dir,
         **config.get_params("snr", "tcut", "nsta", "cut_per", "dist"),
         region=config.region_list(),

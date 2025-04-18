@@ -1,4 +1,4 @@
-use mkfiles::{make_cor_pred_files, make_pathfile};
+use mkfiles::{make_cor_pred_files, make_pathfile, make_ph_files};
 use pyo3::prelude::*;
 
 #[pyfunction]
@@ -14,5 +14,6 @@ fn _core(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(hello_from_rust, m)?)?;
     m.add_function(wrap_pyfunction!(make_pathfile, m)?)?;
     m.add_function(wrap_pyfunction!(make_cor_pred_files, m)?)?;
+    m.add_function(wrap_pyfunction!(make_ph_files, m)?)?;
     Ok(())
 }

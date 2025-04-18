@@ -13,8 +13,8 @@ from .tpwt_gmt import gmt_amp, gmt_phase_time
 def phase_amplitude(
     periods: list[int],
     sac_dir: Path,
-    evt_lst,
-    sta_lst,
+    evt_csv,
+    sta_csv,
     out_dir: Path,
     *,
     snr: int,
@@ -26,9 +26,12 @@ def phase_amplitude(
     ref_sta: list[float],
     binpath: Path,
 ):
+    from tpwt._core import make_sta_dist_file
+
     # calc_distance to create sta_dist.lst
     sta_dist = "outputs/sta_dist.lst"
-    make_sta_dist_bin(evt_lst, sta_lst, sac_dir, sta_dist, binpath=binpath)
+    # make_sta_dist_bin(evt_lst, sta_lst, sac_dir, sta_dist, binpath=binpath)
+    make_sta_dist_file(evt_csv, sta_csv, sac_dir, sta_dist)
     with tqdm(total=len(periods)) as pbar:
         for period in periods:
             pbar.set_postfix_str(f"Processing {period=}")
