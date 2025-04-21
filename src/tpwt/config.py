@@ -1,6 +1,7 @@
 """
 TPWT Config
 """
+
 from pathlib import Path
 
 import pandas as pd
@@ -29,18 +30,18 @@ class TPWTConfig:
         with open(config_toml, "rb") as f:
             config = tomli.load(f)
         self.params = config["parameters"]
+
         self.paths = {ii: Path(vv) for ii, vv in config["paths"].items()}
         self.outpath = Path("outputs")
         self.outpath.mkdir(exist_ok=True)
+
         self.model = config["model"]
         self.name = config["model"]["name"]
+
         if greeting:
             print(
                 f"Welcome to TPWT for area `{self.name}`.\nAll loaded from `{config_toml}`."
             )
-
-    def get_params(self, *args):
-        return {k: self.params[k] for k in args}
 
     def region_list(self, expand: float = 0):
         region = self.model["region"]

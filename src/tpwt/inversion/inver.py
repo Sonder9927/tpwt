@@ -5,7 +5,7 @@ import pandas as pd
 
 from tpwt import TPWTConfig
 
-from .control import aftan_snr, calculate_dispersion, phase_amplitude
+from .control import aftan_snr, calculate_dispersion, collect_phv_amp
 from .iterate import inverse_iter, make_eqlist, make_gridnode
 
 
@@ -88,16 +88,15 @@ def quanlity_control(config: TPWTConfig):
     aftan_snr(sac_dir=config.paths["sac_dir"], path_dir=path_dir, binpath=binpath)
 
     ph_amp_dir = Path("outputs/ph_amp_dir")
-    phase_amplitude(
-        config.periods(),
+    collect_phv_amp(
+        config.paths["evt_csv"],
+        config.paths["sta_csv"],
         config.paths["sac_dir"],
-        evt_csv=str(config.paths["evt_csv"]),
-        sta_csv=str(config.paths["sta_csv"]),
         ph_amp_dir,
-        **config.get_params("snr", "tcut", "nsta", "cut_per", "dist"),
+        config.periods(),
+        **config.params["threshold"],
         region=config.region_list(),
         ref_sta=config.model["ref_sta"],
-        binpath=binpath,
     )
 
 

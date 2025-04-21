@@ -14,5 +14,6 @@ indicatif = { version = "0.17", features = ["rayon"] }
 scan_fmt = "0.2"
 memmap2 = "0.9"
 getset = "0.1"
-sacio = "0.1.0"
-walkdir = "2.5.0"
+sacio = "0.1"
+walkdir = "2.5"
+itertools = "0.14"

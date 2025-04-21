@@ -71,10 +71,10 @@ fn format_line(event: &GeoPoint, station: &GeoPoint, dist: f64) -> String {
         sid = station.id(),
         ecode = event.code(),
         scode = station.code(),
-        elat = event.lat(),
-        elon = event.lon(),
-        slat = station.lat(),
-        slon = station.lon(),
+        elat = event.lat,
+        elon = event.lon,
+        slat = station.lat,
+        slon = station.lon,
         dist = dist,
     )
 }
@@ -89,7 +89,12 @@ fn load_events(path: &str) -> Result<Vec<GeoPoint>> {
             let record: EventRecord = record?;
             let dt = parse_iso_time(&record.time)?;
             let evt_code = dt.format("%Y%m%d%H%M").to_string();
-            Ok(GeoPoint::new(i + 1, &evt_code, record.lat, record.lon))
+            Ok(GeoPoint::new(
+                record.lat,
+                record.lon,
+                Some(i + 1),
+                Some(&evt_code),
+            ))
         })
         .collect()
 }
@@ -102,7 +107,12 @@ fn load_stations(path: &str) -> Result<Vec<GeoPoint>> {
         .par_bridge()
         .map(|(i, record)| {
             let record: StationRecord = record?;
-            Ok(GeoPoint::new(i + 1, &record.name, record.lat, record.lon))
+            Ok(GeoPoint::new(
+                record.lat,
+                record.lon,
+                Some(i + 1),
+                Some(&record.name),
+            ))
         })
         .collect()
 }

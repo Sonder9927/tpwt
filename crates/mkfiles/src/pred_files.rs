@@ -1,5 +1,5 @@
+use crate::utils::pbar;
 use crate::utils::points::GeoPoint;
-use crate::utils::progress_bar::pbar;
 
 use anyhow::{Context, Result};
 use indicatif::ParallelProgressIterator;
@@ -39,8 +39,8 @@ impl EvtStaPair {
         dispersions: Vec<(f64, f64)>,
     ) -> Self {
         Self {
-            sta1: GeoPoint::new(id1, code1, lat1, lon1),
-            sta2: GeoPoint::new(id2, code2, lat2, lon2),
+            sta1: GeoPoint::new(lat1, lon1, Some(id1), Some(code1)),
+            sta2: GeoPoint::new(lat2, lon2, Some(id2), Some(code2)),
             dispersions,
         }
     }
@@ -143,10 +143,10 @@ fn write_station_pair(output_dir: &Path, pair: &EvtStaPair) -> Result<()> {
         pair.dispersions.len(),
         pair.sta1.code(),
         pair.sta2.code(),
-        pair.sta1.lat(),
-        pair.sta1.lon(),
-        pair.sta2.lat(),
-        pair.sta2.lon()
+        pair.sta1.lat,
+        pair.sta1.lon,
+        pair.sta2.lat,
+        pair.sta2.lon
     );
 
     let data_str = pair
