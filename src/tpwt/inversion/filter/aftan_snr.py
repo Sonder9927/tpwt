@@ -51,9 +51,9 @@ def process_aftan_snr_per_event(
     os.chdir(str(event_dir))
 
     filelist = "filelist"
-    # aftan
+    # aftan -> disp files
     _aftan(event_dir, path_dir, filelist, aftani_c_pgl_TPWT)
-    # snr
+    # snr -> snr file
     _snr(filelist, spectral_snr_TPWT)
 
     os.chdir(str(work_dir))
@@ -88,6 +88,6 @@ def _aftan_per_sac(path_dir: Path, sac_file: str, aftani_c_pgl_TPWT):
     parts = sac_file.split(".")
     ref = path_dir / f"{parts[0]}_{parts[1]}.PH_PRED"
 
-    cmd_string = f"{aftani_c_pgl_TPWT} {param_dat} {ref}\n"
+    cmd_string = f"{aftani_c_pgl_TPWT} {param_dat} {ref} \n"  # notice space at end
     cmd_string = f"rm {param_dat}\n"
     subprocess.Popen(["bash"], stdin=subprocess.PIPE).communicate(cmd_string.encode())

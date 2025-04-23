@@ -1,15 +1,15 @@
 import pandas as pd
-from pathlib import Path
+# from pathlib import Path
 
 
 from .tpwt_gmt import gmt_surface
 
 
 def collect_ph_amp(
-    evt_csv: Path,
-    sta_csv: Path,
-    sac_dir: Path,
-    out_dir: Path,
+    evt_csv,
+    sta_csv,
+    sac_dir,
+    out_dir,
     periods,
     snr,
     dist,
@@ -41,7 +41,6 @@ def collect_ph_amp(
         str(evt_csv),
         str(sta_csv),
         str(sac_dir),
-        str(out_dir),
         periods,
         ref_sta,
         snr,
@@ -49,6 +48,7 @@ def collect_ph_amp(
         nsta,
         valid_ratio,
         tmisfit,
+        str(out_dir),
     )
 
     for ph_csv in out_dir.glob("*ph.csv"):

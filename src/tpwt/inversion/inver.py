@@ -26,7 +26,7 @@ def tpwt_iter(cfg: TPWTConfig):
     Note:
         Not complete!
     """
-    method = _valid_method(cfg.params.get("method"))
+    method = _valid_method(cfg.flags["method"])
     eqlist, gridnode, stationid = _make_iter_files(cfg)
     inverse_iter()
 

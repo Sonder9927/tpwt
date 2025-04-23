@@ -20,32 +20,32 @@ use std::{
 pub fn make_ph_amp_files(
     evt_csv: &str,
     sta_csv: &str,
-    sac_data_dir: &str,
+    sac_dir: &str,
+    out_dir: &str,
     periods: Vec<f64>,
-    snr_threshold: f64,
-    dist_threshold: f64,
+    snr: f64,
+    dist: f64,
     nsta: usize,
-    nsta_per: f64,
+    valid_ratio: f64,
     tmisfit: f64,
-    ref_point: [f64; 2],
-    outdir: &str,
+    ref_sta: [f64; 2],
 ) -> PyResult<()> {
-    let dist_records = dist::calc_dist_records(evt_csv, sta_csv, sac_data_dir)
+    let dist_records = dist::calc_dist_records(evt_csv, sta_csv, sac_dir)
         .map_err(|e| PyIOError::new_err(e.to_string()))?;
 
     let pbar = pbar(periods.len() as u64, "Calcing ph and amp");
     for period in pbar.wrap_iter(periods.into_iter()) {
         gen_ph_amp_files(
             &dist_records,
-            sac_data_dir,
+            sac_dir,
             period,
-            snr_threshold,
-            dist_threshold,
+            snr,
+            dist,
             nsta,
-            nsta_per,
+            valid_ratio,
             tmisfit,
-            ref_point,
-            outdir,
+            ref_sta,
+            out_dir,
         )
         .map_err(|e| PyIOError::new_err(e.to_string()))?;
     }
@@ -60,7 +60,7 @@ fn gen_ph_amp_files(
     snr_threshold: f64,
     dist_threshold: f64,
     nsta: usize,
-    nsta_per: f64,
+    valid_ratio: f64,
     tmisfit: f64,
     [ref_lon, ref_lat]: [f64; 2],
     outdir: &str,
@@ -88,7 +88,7 @@ fn gen_ph_amp_files(
         ph_records,
         period,
         nsta,
-        nsta_per,
+        valid_ratio,
         tmisfit,
         (ref_lon, ref_lat),
     );

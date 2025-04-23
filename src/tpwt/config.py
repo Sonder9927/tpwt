@@ -30,18 +30,18 @@ class TPWTConfig:
         """
         with open(config_toml, "rb") as f:
             config = tomli.load(f)
+
+        self.flags = config["flags"]
         self.params = config["parameters"]
+        self.model = config["model"]
 
         self.paths = {ii: Path(vv) for ii, vv in config["paths"].items()}
         self.outpath = self.paths["output_dir"]
         self.outpath.mkdir(exist_ok=True)
 
-        self.model = config["model"]
-        self.name = config["model"]["name"]
-
         if greeting:
             print(
-                f"Welcome to TPWT for the area: `{self.name}`.\n"
+                f"Welcome to TPWT for the area: `{self.flags['name']}`.\n"
                 f"All loaded from `{config_toml}`."
             )
 
@@ -54,7 +54,7 @@ class TPWTConfig:
             region["north"] + expand,
         ]
 
-    def periods(self) -> list[int]:
+    def periods(self) -> list[float]:
         return sorted([i[0] for i in self.model["phvs"]])
 
     def ph_path(self) -> Path:
