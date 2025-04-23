@@ -5,30 +5,21 @@ from pathlib import Path
 # import numpy as np
 # import pandas as pd
 
-from tpwt.utils.pather import binuse
-
-LOVE = "TPWT/utils/LOVE_400_100.disp"
-RAYL = "TPWT/utils/RAYL_320_80_32000_8000.disp"
-
 
 def calculate_dispersion(
-    evt_csv: str,
-    sta_csv: str,
-    path_dir: Path,
-    binpath: Path = Path("TPWT/bin"),
-    disps: list[str] = [LOVE, RAYL],
+    evt_csv: str, sta_csv: str, path_dir: Path, disps: list[str], dispersion_TPWT: str
 ):
     from tpwt._core import make_cor_pred_files, make_pathfile
 
-    if path_dir.exists():
+    pathfile = path_dir / "pathfile"
+    if pathfile.exists():
         print(f"{path_dir} exists, skip calculate dispersion.")
         return
     path_dir.mkdir(parents=True)
 
-    pathfile = "outputs/pathfile"
-    make_pathfile(evt_csv, sta_csv, pathfile)
+    make_pathfile(evt_csv, sta_csv, str(pathfile))
     # create tempinp using for GDM52_dispersion_TPWT
-    tempinp = "outputs/tempinp"
+    tempinp = path_dir / "tempinp"
     create_tempinp(pathfile, tempinp)
 
     # cp disp model
@@ -36,7 +27,6 @@ def calculate_dispersion(
         shutil.copy(disp, "./")
     # calculate dispersion
     dispersion_out = "GDM52_dispersion.out"
-    dispersion_TPWT = binuse("GDM52_dispersion_TPWT", binpath=binpath)
     # gen_cor_pred_TPWT = binuse("gen_cor_pred_TPWT", binpath=binpath)
 
     cmd_string = "echo shell start\n"
@@ -53,7 +43,7 @@ def calculate_dispersion(
 ###############################################################################
 
 
-def create_tempinp(pathfile: str, tempinp: str):
+def create_tempinp(pathfile, tempinp):
     with open(tempinp, "w+") as f:
         f.write("77\n")
         with open(pathfile, "r") as p:

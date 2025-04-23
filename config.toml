@@ -10,20 +10,12 @@ dcheck = 2
 dvel = 8
 
 [paths]
-og_data = "data/og_data"
-evt30 = "data/txt/event_30.csv"
-evt120 = "data/txt/event_120.csv"
-evt_cat = "data/txt/event.cat"
-evt_csv = "data/txt/events.csv"
-evt_lst = "data/txt/event.lst"
-sta_csv = "data/txt/stations.csv"
-phv_csv = "data/txt/phv.csv"
-event_dir = "data/events"
+evt_csv = "data/events.csv"
+sta_csv = "data/stations.csv"
 sac_dir = "data/SAC"
-path = "data/path"
-all_events_dir = "data/all_events"
-sens_dir = "data/sens_dir"
-mcmc_dir = "data/mcmc"
+output_dir = "outputs"
+utils = "TPWT/utils"
+binpath = "TPWT/bin"
 
 [model]
 name = "nz"

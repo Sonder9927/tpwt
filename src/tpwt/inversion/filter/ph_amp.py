@@ -1,20 +1,14 @@
-import shutil
 import pandas as pd
-import subprocess
 from pathlib import Path
 
-from tqdm import tqdm
 
-from tpwt.utils.pather import binuse
-
-# from .sta_dist import make_sta_dist_bin
 from .tpwt_gmt import gmt_surface
 
 
-def collect_phv_amp(
-    evt_csv,
-    sta_csv,
-    sac_dir,
+def collect_ph_amp(
+    evt_csv: Path,
+    sta_csv: Path,
+    sac_dir: Path,
     out_dir: Path,
     periods,
     snr,
@@ -25,13 +19,29 @@ def collect_phv_amp(
     ref_sta,
     region,
 ):
+    """find phase time and amp
+
+    Parameters:
+        evt_csv: filter event record
+        sta_csv: filter station record
+        sac_dir: sac data
+        out_dir: output path
+        periods: target periods
+        snr: min snr threshold
+        dist: min dist threshold
+        nsta: min number of stations
+        valid_ratio: min ratio of valid stations
+        tmisfit: max misfit between corrected and expected time
+        ref_sta: reference station coordinates
+        region: region for gmt surface
+    """
     from tpwt._core import make_ph_amp_files
 
     make_ph_amp_files(
         str(evt_csv),
         str(sta_csv),
         str(sac_dir),
-        out_dir,
+        str(out_dir),
         periods,
         ref_sta,
         snr,

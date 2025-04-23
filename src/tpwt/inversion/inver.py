@@ -5,11 +5,11 @@ import pandas as pd
 
 from tpwt import TPWTConfig
 
-from .control import aftan_snr, calculate_dispersion, collect_phv_amp
+from .filter import aftan_snr, calculate_dispersion, collect_ph_amp
 from .iterate import inverse_iter, make_eqlist, make_gridnode
 
 
-def tpwt_iter(config: TPWTConfig):
+def tpwt_iter(cfg: TPWTConfig):
     """tpwt iterate, contains twice iterate.
 
     Parameters:
@@ -26,9 +26,8 @@ def tpwt_iter(config: TPWTConfig):
     Note:
         Not complete!
     """
-    method = _valid_method(config.params.get("method"))
-    eqlist, gridnode, stationid = _make_iter_files(config)
-    binpath = config.paths.get("binpath", Path("TPWT/bin"))
+    method = _valid_method(cfg.params.get("method"))
+    eqlist, gridnode, stationid = _make_iter_files(cfg)
     inverse_iter()
 
 
@@ -52,11 +51,11 @@ def inverse(config_toml: str):
         Not complete!
     """
     cfg = TPWTConfig(config_toml)
-    quanlity_control(cfg)
+    tpwt_filter(cfg)
     tpwt_iter(cfg)
 
 
-def quanlity_control(config: TPWTConfig):
+def tpwt_filter(cfg: TPWTConfig):
     """tpwt quanlity control.
 
     Steps:
@@ -76,27 +75,31 @@ def quanlity_control(config: TPWTConfig):
         tpwt.quanlity_control(cfg)
         ```
     """
-    binpath = config.paths.get("binpath", Path("TPWT/bin"))
-    path_dir = Path("outputs/path")
+    path_dir = cfg.outpath / "path"
 
+    dispersion_TPWT = cfg.binuse("GDM52_dispersion_TPWT")
     calculate_dispersion(
-        evt_csv=str(config.paths["evt_csv"]),
-        sta_csv=str(config.paths["sta_csv"]),
-        path_dir=path_dir,
-        binpath=binpath,
+        str(cfg.paths["evt_csv"]),
+        str(cfg.paths["sta_csv"]),
+        path_dir,
+        cfg.get_disps(),
+        dispersion_TPWT,
     )
-    aftan_snr(sac_dir=config.paths["sac_dir"], path_dir=path_dir, binpath=binpath)
+    # aftani_c_pgl_TPWT
+    aftani_c_pgl_TPWT = cfg.binuse("aftani_c_pgl_TPWT")
+    # spectral_snr_TPWT
+    spectral_snr_TPWT = cfg.binuse("spectral_snr_TPWT")
+    aftan_snr(cfg.paths["sac_dir"], path_dir, aftani_c_pgl_TPWT, spectral_snr_TPWT)
 
-    ph_amp_dir = Path("outputs/ph_amp_dir")
-    collect_phv_amp(
-        config.paths["evt_csv"],
-        config.paths["sta_csv"],
-        config.paths["sac_dir"],
-        ph_amp_dir,
-        config.periods(),
-        **config.params["threshold"],
-        region=config.region_list(),
-        ref_sta=config.model["ref_sta"],
+    collect_ph_amp(
+        cfg.paths["evt_csv"],
+        cfg.paths["sta_csv"],
+        cfg.paths["sac_dir"],
+        cfg.ph_path(),
+        cfg.periods(),
+        **cfg.params["threshold"],
+        region=cfg.region_list(),
+        ref_sta=cfg.model["ref_sta"],
     )
 
 

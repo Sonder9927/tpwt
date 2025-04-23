@@ -33,7 +33,7 @@ pub fn make_ph_amp_files(
     let dist_records = dist::calc_dist_records(evt_csv, sta_csv, sac_data_dir)
         .map_err(|e| PyIOError::new_err(e.to_string()))?;
 
-    let pbar = pbar(periods.len() as u64, "Collecting ph and amp");
+    let pbar = pbar(periods.len() as u64, "Calcing ph and amp");
     for period in pbar.wrap_iter(periods.into_iter()) {
         gen_ph_amp_files(
             &dist_records,

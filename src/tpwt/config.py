@@ -3,6 +3,7 @@ TPWT Config
 """
 
 from pathlib import Path
+from typing import Optional
 
 import pandas as pd
 import tomli
@@ -32,7 +33,7 @@ class TPWTConfig:
         self.params = config["parameters"]
 
         self.paths = {ii: Path(vv) for ii, vv in config["paths"].items()}
-        self.outpath = Path("outputs")
+        self.outpath = self.paths["output_dir"]
         self.outpath.mkdir(exist_ok=True)
 
         self.model = config["model"]
@@ -40,7 +41,8 @@ class TPWTConfig:
 
         if greeting:
             print(
-                f"Welcome to TPWT for area `{self.name}`.\nAll loaded from `{config_toml}`."
+                f"Welcome to TPWT for the area: `{self.name}`.\n"
+                f"All loaded from `{config_toml}`."
             )
 
     def region_list(self, expand: float = 0):
@@ -55,21 +57,48 @@ class TPWTConfig:
     def periods(self) -> list[int]:
         return sorted([i[0] for i in self.model["phvs"]])
 
-    def make_hull(self):
-        _make_hull_file(sta_csv=self.paths["sta_csv"])
+    def ph_path(self) -> Path:
+        return self.outpath / "ph_amp"
 
-    def tpwt_path(self):
+    def tpwt_path(self) -> Path:
         control = [
             f"snr{self.params['snr']}",
             f"tmisfit{self.params['tmisfit']}",
             f"nsta{self.params['nsta']}",
-            f"nsta_per{str(self.params['nsta_per'])[2:]}",
+            f"valid_ratio{str(self.params['valid_ratio'])[2:]}",
         ]
         invs = [
             f"smooth{self.params['smooth']}",
             f"damp{str(self.params['damp'])[2:]}",
         ]
         return self.outpath / "_".join(control) / "_".join(invs)
+
+    def binuse(self, command: str) -> str:
+        """get bin command
+
+        Parameters:
+            command: target command
+            binpath: relative path
+
+        Returns:
+            absolute path of target bin command
+        """
+        binpath = Path().cwd() / self.paths["binpath"]
+        cmdbin = binpath / command
+        if cmdbin.exists():
+            return str(cmdbin)
+        err = f"The binary {cmdbin} doesn't exist."
+        raise FileNotFoundError(err)
+
+    def get_disps(self) -> list[str]:
+        love = self.paths["utils"] / "LOVE_400_100.disp"
+        rayl = self.paths["utils"] / "RAYL_320_80_32000_8000.disp"
+        if all([love.exists(), rayl.exists()]):
+            return [str(love), str(rayl)]
+        raise FileNotFoundError(f"Cant find disp file in {self.paths['utils']}")
+
+    def make_hull(self):
+        _make_hull_file(sta_csv=self.paths["sta_csv"])
 
 
 def _make_hull_file(sta_csv: Path):

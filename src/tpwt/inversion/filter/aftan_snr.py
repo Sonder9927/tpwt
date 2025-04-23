@@ -5,10 +5,8 @@ from pathlib import Path
 
 from tqdm import tqdm
 
-from tpwt.utils.pather import binuse
 
-
-def aftan_snr(sac_dir: Path, path_dir: Path, binpath: Path = Path("TPWT/bin")):
+def aftan_snr(sac_dir: Path, path_dir: Path, aftani_c_pgl_TPWT, spectral_snr_TPWT):
     """
     aftan and SNR in sac/event/
 
@@ -17,13 +15,8 @@ def aftan_snr(sac_dir: Path, path_dir: Path, binpath: Path = Path("TPWT/bin")):
         path_dir: the dir where puts PH_PRED files
         binpath: bin dir
     """
-    work_dir = Path(".").cwd()
+    work_dir = Path().cwd()
     path_dir_obs = work_dir / path_dir
-
-    # aftani_c_pgl_TPWT
-    aftani_c_pgl_TPWT = binuse("aftani_c_pgl_TPWT", binpath=work_dir / binpath)
-    # spectral_snr_TPWT
-    spectral_snr_TPWT = binuse("spectral_snr_TPWT", binpath=work_dir / binpath)
 
     events = [work_dir / i for i in sac_dir.iterdir() if i.is_dir()]
 
