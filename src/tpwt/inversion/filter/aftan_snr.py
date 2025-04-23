@@ -78,7 +78,6 @@ def _aftan(event_dir, path_dir, filelist, aftani_c_pgl_TPWT):
         parts = sacfn.split(".")
         ref = path_dir / f"{parts[0]}_{parts[1]}.PH_PRED"
 
-        cmd_str += f"echo {sacfn} \n"
         cmd_str += f'echo "{params} {sacfn}" > {param_dat} \n'
         cmd_str += f"{aftani_c_pgl_TPWT} {param_dat} {ref} \n"
         saclst.append(sacfn + "\n")

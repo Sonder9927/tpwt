@@ -51,7 +51,7 @@ def collect_ph_amp(
         ref_sta,
     )
 
-    for ph_csv in out_dir.glob("*ph.csv"):
+    for ph_csv in out_dir.glob("*/*ph.csv"):
         root_name = ph_csv.parent / ph_csv.stem
 
         df = pd.read_csv(ph_csv)
