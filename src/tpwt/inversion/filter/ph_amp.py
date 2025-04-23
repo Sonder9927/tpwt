@@ -41,14 +41,14 @@ def collect_ph_amp(
         str(evt_csv),
         str(sta_csv),
         str(sac_dir),
+        str(out_dir),
         periods,
-        ref_sta,
         snr,
         dist,
         nsta,
         valid_ratio,
         tmisfit,
-        str(out_dir),
+        ref_sta,
     )
 
     for ph_csv in out_dir.glob("*ph.csv"):

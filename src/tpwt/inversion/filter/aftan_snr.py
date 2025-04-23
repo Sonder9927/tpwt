@@ -61,33 +61,31 @@ def process_aftan_snr_per_event(
 
 
 def _snr(filelist, spectral_snr_TPWT):
-    cmd_string = f"{spectral_snr_TPWT} {filelist} > temp.dat \n"
-    cmd_string += "rm temp.dat \n"
+    out_msg = "temp.dat"
+    cmd_string = f"{spectral_snr_TPWT} {filelist} > {out_msg} \n"
+    cmd_string += f"rm {out_msg} \n"
     subprocess.Popen(["bash"], stdin=subprocess.PIPE).communicate(cmd_string.encode())
 
 
 def _aftan(event_dir, path_dir, filelist, aftani_c_pgl_TPWT):
-    contents = []
+    saclst = []
+    param_dat = "param.dat"
+    params = "0 2.5 5.0 10 250 20 1 0.5 0.2 2"
+
+    cmd_str = "shell start aftan"
     for sac in event_dir.glob("*.sac"):
         sacfn = sac.name
-        contents.append(sacfn + "\n")
-        # aftan
-        _aftan_per_sac(path_dir, sacfn, aftani_c_pgl_TPWT)
+        parts = sacfn.split(".")
+        ref = path_dir / f"{parts[0]}_{parts[1]}.PH_PRED"
+
+        cmd_str += f"echo {sacfn} \n"
+        cmd_str += f'echo "{params} {sacfn}" > {param_dat} \n'
+        cmd_str += f"{aftani_c_pgl_TPWT} {param_dat} {ref} \n"
+        saclst.append(sacfn + "\n")
+    cmd_str += f"rm {param_dat}\n"
+
+    subprocess.Popen(["bash"], stdin=subprocess.PIPE).communicate(cmd_str.encode())
 
     # filelist
     with open(filelist, "w+") as f:
-        f.writelines(contents)
-
-
-def _aftan_per_sac(path_dir: Path, sac_file: str, aftani_c_pgl_TPWT):
-    content = f"0 2.5 5.0 10 250 20 1 0.5 0.2 2 {sac_file}"
-    param_dat = "param.dat"
-    with open(param_dat, "w") as p:
-        p.write(content)
-
-    parts = sac_file.split(".")
-    ref = path_dir / f"{parts[0]}_{parts[1]}.PH_PRED"
-
-    cmd_string = f"{aftani_c_pgl_TPWT} {param_dat} {ref} \n"  # notice space at end
-    cmd_string = f"rm {param_dat}\n"
-    subprocess.Popen(["bash"], stdin=subprocess.PIPE).communicate(cmd_string.encode())
+        f.writelines(saclst)
