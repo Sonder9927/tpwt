@@ -1,8 +1,57 @@
-import numpy as np
 from pathlib import Path
+from typing import Tuple
+
+import numpy as np
 
 
-def make_gridnode(region, dgrid: list[float], outfile: Path):
+def make_gridnode(region, dgrids: Tuple[float, float], outfile: Path):
+    """
+    create inversion grid nodes
+    """
+    DEG_TO_RAD = np.pi / 180
+    EARTH_RADIUS_KM = 6371.0
+    KM_PER_DEGREE = EARTH_RADIUS_KM * DEG_TO_RAD
+
+    dlon, dlat = dgrids
+    lonmax = region.east + 2
+    lonmin = region.west - 2
+    latmax = region.north + 2
+    latmin = region.south - 2
+
+    lons = np.arange(lonmin, lonmax + dlon / 2, dlon)
+    lats = np.arange(latmin, latmax + dlat / 2, dlat)
+    nlon = len(lons)
+    nlat = len(lats)
+    ngrid = nlon * nlat
+
+    dy = KM_PER_DEGREE * dlat
+
+    lon_grid, lat_grid = np.meshgrid(lons, lats, indexing="xy")
+    dx_grid = KM_PER_DEGREE * np.cos(lat_grid * DEG_TO_RAD) * dlon
+
+    grid_data = np.column_stack([
+        lat_grid.ravel(order="F"),
+        lon_grid.ravel(order="F"),
+        dx_grid.ravel(order="F"),
+        np.full(ngrid, dy),
+    ])
+
+    corner_lons = [lonmin + 2 * dlon, lonmax - 2 * dlon]
+    corner_lats = [latmax - 2 * dlat, latmin + 2 * dlat]
+    corners = [(lat, lon) for lon in corner_lons for lat in corner_lats]
+
+    with outfile.open("w+") as f:
+        f.write(f"grid{nlat:2}x{nlon:3}\n")
+        f.write(f"{ngrid:6}\n")
+        np.savetxt(f, grid_data, fmt="%8.2f%8.2f%8.3f%8.3f", delimiter="")
+
+        for lat, lon in corners:
+            f.write(f"{lat:8.2f}{lon:8.2f}\n")
+
+        f.write(f"{nlon:3}")
+
+
+def _make_gridnode(region, dgrid: list[float], outfile: Path):
     """
     create inversion grid nodes
     """
@@ -40,7 +89,7 @@ def make_gridnode(region, dgrid: list[float], outfile: Path):
         f.write(f"{nlon:3}")
 
 
-def inversion_nodes_TPWT(out_file: str, region, dgrid=None):
+def _inversion_nodes_TPWT(out_file: str, region, dgrid=None):
     """
     create inversion grid nodes
     """

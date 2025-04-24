@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Optional
+from typing import List, Optional
 
 import pandas as pd
 from tqdm import tqdm
@@ -32,14 +32,15 @@ class Ploter:
             Not all methods completed!
         """
         self.cfg = config
-        self.name = self.cfg.name
+        self.name = self.cfg.flags["name"]
         self.fig_root = Path("images")
         self.fig_root.mkdir(exist_ok=True)
-        self.region: list[float] = self.cfg.region_list()
+        self.region: list[float] = self.cfg.region.to_list()
         Path("temp").mkdir(exist_ok=True)
 
     def plot_region(self, outfile: Optional[str] = None):
         """plot region map
+
         Parameters:
             outfile: output file.
         """
@@ -49,6 +50,7 @@ class Ploter:
 
     def plot_phase_velocities(self, periods: Optional[list[int]] = None, **kwargs):
         """plot phase velocitiy maps
+
         Parameters:
             periods: periods for target phase velocities
         """
@@ -64,11 +66,12 @@ class Ploter:
         *,
         phv_csv: Optional[str | Path] = None,
         outfile: Optional[str] = None,
-        series: Optional[list[float]] = None,
+        series: Optional[List[float]] = None,
         clip: bool = False,
         ave: bool = False,
     ):
         """plot phase velocitiy maps
+
         Parameters:
             period: target period
             phv_csv: set phv_csv
@@ -94,7 +97,7 @@ class Ploter:
         outfile: Optional[str] = None,
         ave: bool = False,
         clip: bool = False,
-        series: Optional[list[float]] = None,
+        series: Optional[List[float]] = None,
     ):
         """Plot diff between phvs from two methods.
 

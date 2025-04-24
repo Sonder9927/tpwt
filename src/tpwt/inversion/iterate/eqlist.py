@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import List, Dict, Set
 
 import pandas as pd
 
@@ -8,10 +9,10 @@ def make_eqlist(sac_dir: Path, evt_df, sta_df, region, nsta, eqlist):
     stations = _find_stations(sta_df, region)
     # process every event
     # find valid events
-    temppers = make_event_temppers(sac_dir, events, stations, nsta)
+    temppers = _process_events(sac_dir, events, set(stations), nsta)
 
     # write eqlistper
-    make_event_eqlists(sac_dir, temppers, eqlist)
+    _write_eqlists(sac_dir, temppers, eqlist)
 
     return eqlist
 
@@ -19,55 +20,48 @@ def make_eqlist(sac_dir: Path, evt_df, sta_df, region, nsta, eqlist):
 ###############################################################################
 
 
-def make_event_temppers(
-    sac_dir: Path, events: list[str], stas: list[str], nsta: int
-) -> dict[str, list[str]]:
-    temppers = {}
-    for evt in events:
-        filelist = sac_dir / evt / "filelist"
-
-        with filelist.open() as f:
-            sacs = f.read().splitlines()
-
-        tempper = [sac for sta in stas if (sac := f"{evt}.{sta}.LHZ.sac") in sacs]
-
-        if len(tempper) < nsta:
-            continue
-        temppers[evt] = tempper
-    return temppers
+def _process_events(
+    sac_dir: Path, events: List[str], stas: Set[str], nsta: int
+) -> Dict[str, List[str]]:
+    return {
+        evt: valid_sacs
+        for evt in events
+        if len(valid_sacs := _get_valid_sacs(sac_dir, evt, stas)) >= nsta
+    }
 
 
-def make_event_eqlists(sac_dir: Path, temppers: dict, eqlist: Path):
-    contents = []
-    evt_list = sorted([*temppers])
-    for i, evt in enumerate(evt_list):
-        tems_evt = temppers[evt]
-        contents.append(f"    {len(tems_evt)} {i + 1}\n")
-        # sac files' position will follow it
-        evt_dir = sac_dir / evt
-        contents += [f"{evt_dir / sac}\n" for sac in tems_evt]
+def _get_valid_sacs(sac_dir: Path, evt: str, stas: Set[str]) -> List[str]:
+    file_path = sac_dir / evt / "filelist"
+    try:
+        with file_path.open() as f:
+            return [
+                f"{evt}.{sta}.LHZ.sac"
+                for sac in f.read().splitlines()
+                if (sta := sac.split(".")[1]) in stas
+            ]
+    except FileNotFoundError:
+        return []
 
-    with eqlist.open("w+") as f:
+
+def _write_eqlists(sac_dir: Path, temppers: Dict[str, List[str]], eqlist: Path):
+    with eqlist.open("w") as f:
         # first line
         f.write(f"{len(temppers)}\n")
+        contents = (
+            f"    {len(files)} {i}\n" + "\n".join(f"{sac_dir / evt / f}" for f in files)
+            for i, (evt, files) in enumerate(sorted(temppers.items()), 1)
+        )
         # contents
-        f.writelines(contents)
+        f.write("\n".join("\n".join([header] + paths) for header, *paths in contents))
 
 
-##############################################################################
-
-
-def _find_events(evts: pd.DataFrame, sac_dir: Path) -> list:
+def _find_events(evt_df: pd.DataFrame, sac_dir: Path) -> list:
     """
     Return a list of events
     that are in both file_name and dir_name.
     """
-    evts_in_dir = pd.DataFrame(
-        data=[dd.name for dd in sac_dir.iterdir() if dd.is_dir()], columns=["time"]
-    )
-
-    events_df = pd.concat([evts, evts_in_dir]).drop_duplicates(keep=False)
-    return events_df.time.dropna().unique()
+    sac_events = {d.name for d in sac_dir.iterdir() if d.is_dir()}
+    return evt_df[evt_df["time"]].is_in(sac_events)["time"].to_list()
 
 
 def _find_stations(sta_df: pd.DataFrame, region):
@@ -75,11 +69,7 @@ def _find_stations(sta_df: pd.DataFrame, region):
     Return a list of stations in the sta_file
     that are in the area.
     """
-    sta_in_area = sta_df[
-        (sta_df.latitude >= region.south)
-        & (sta_df.latitude <= region.north)
-        & (sta_df.longitude >= region.west)
-        & (sta_df.longitude <= region.east)
-    ]
-
-    return sta_in_area["sta"].to_list()
+    return sta_df[
+        sta_df.longitude.between(region.west, region.east)
+        & sta_df.latitude.between(region.south, region.north)
+    ]["station"].to_list()

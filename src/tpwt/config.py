@@ -3,7 +3,7 @@ TPWT Config
 """
 
 from pathlib import Path
-from typing import Optional
+from typing import Dict, List, Tuple
 
 import pandas as pd
 import tomli
@@ -13,6 +13,8 @@ from scipy.spatial import ConvexHull
 
 class TPWTConfig:
     """TPWT config"""
+
+    valid_methods = ["TPWT", "OPWT"]
 
     def __init__(self, config_toml: str, greeting: bool = True) -> None:
         """
@@ -34,6 +36,7 @@ class TPWTConfig:
         self.flags = config["flags"]
         self.params = config["parameters"]
         self.model = config["model"]
+        self.region = TPWTRegion(self.model["region"], self.model["dgrid"])
 
         self.paths = {ii: Path(vv) for ii, vv in config["paths"].items()}
         self.outpath = self.paths["output_dir"]
@@ -45,20 +48,18 @@ class TPWTConfig:
                 f"All loaded from `{config_toml}`."
             )
 
-    def region_list(self, expand: float = 0):
-        region = self.model["region"]
-        return [
-            region["west"] - expand,
-            region["east"] + expand,
-            region["south"] - expand,
-            region["north"] + expand,
-        ]
-
-    def periods(self) -> list[float]:
+    def periods(self) -> List[float]:
         return sorted([i[0] for i in self.model["phvs"]])
 
     def ph_path(self) -> Path:
         return self.outpath / "ph_amp"
+
+    def valid_method(self) -> str:
+        # check method
+        method = self.flags["method"].upper()
+        if method in self.valid_methods:
+            return method
+        raise ValueError(f"Unvalid method: {method}, pick one in {self.valid_methods}")
 
     def tpwt_path(self) -> Path:
         control = [
@@ -90,7 +91,7 @@ class TPWTConfig:
         err = f"The binary {cmdbin} doesn't exist."
         raise FileNotFoundError(err)
 
-    def get_disps(self) -> list[str]:
+    def get_disps(self) -> List[str]:
         love = self.paths["utils"] / "LOVE_400_100.disp"
         rayl = self.paths["utils"] / "RAYL_320_80_32000_8000.disp"
         if all([love.exists(), rayl.exists()]):
@@ -99,6 +100,29 @@ class TPWTConfig:
 
     def make_hull(self):
         _make_hull_file(sta_csv=self.paths["sta_csv"])
+
+
+class TPWTRegion:
+    """TPWT Region"""
+
+    def __init__(self, region: Dict[str, float], dgrid: float):
+        self.west = region["west"]
+        self.east = region["east"]
+        self.south = region["south"]
+        self.north = region["north"]
+        self.dgrid = dgrid
+
+    def to_list(self, expand: float = 0) -> List[float]:
+        return [
+            self.west - expand,
+            self.east + expand,
+            self.south - expand,
+            self.north + expand,
+        ]
+
+    def dgrids(self) -> Tuple[float, float]:
+        dgrid = self.dgrid
+        return (dgrid, dgrid)
 
 
 def _make_hull_file(sta_csv: Path):
