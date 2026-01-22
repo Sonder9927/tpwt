@@ -1,11 +1,17 @@
 from tpwt._core import hello_from_rust
 from tpwt.config import TPWTConfig
-from tpwt.inversion import inverse, tpwt_filter, tpwt_iter
-from tpwt.plot import Ploter
+from tpwt.inversion import inverse, iterative_inversion, quanlity_control
+from tpwt import tpwtplotlib
 
 
 def main() -> None:
     print(hello_from_rust())
 
 
-__all__ = ["TPWTConfig", "tpwt_filter", "tpwt_iter", "inverse", "Ploter"]
+__all__ = [
+    "TPWTConfig",
+    "quanlity_control",
+    "iterative_inversion",
+    "inverse",
+    "tpwtplotlib",
+]

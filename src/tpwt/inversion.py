@@ -6,10 +6,10 @@ import pandas as pd
 from tpwt import TPWTConfig
 
 from .filter import aftan_snr, calculate_dispersion, collect_ph_amp
-from .iterate import collect_results, inverse_iter, make_pre_files
+from .iteration import collect_results, inverse_iter, make_pre_files
 
 
-def tpwt_iter(cfg: TPWTConfig):
+def iterative_inversion(cfg: TPWTConfig):
     """tpwt iterate, contains twice iterate.
 
     Steps:
@@ -39,7 +39,7 @@ def tpwt_iter(cfg: TPWTConfig):
     collect_results(cfg.tpwt_path())
 
 
-def tpwt_filter(cfg: TPWTConfig):
+def quanlity_control(cfg: TPWTConfig):
     """tpwt quanlity control.
 
     Steps:
@@ -107,5 +107,5 @@ def inverse(config_toml: str):
         Not complete!
     """
     cfg = TPWTConfig(config_toml)
-    tpwt_filter(cfg)
-    tpwt_iter(cfg)
+    quanlity_control(cfg)
+    iterative_inversion(cfg)
