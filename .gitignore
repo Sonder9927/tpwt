@@ -1,0 +1,16 @@
+outputs
+data
+images
+temp
+TPWT
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+target/
+*.egg-info
+
+# Virtual environments
+.venv
