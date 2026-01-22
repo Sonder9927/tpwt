@@ -5,7 +5,7 @@ from typing import Optional
 from tpwt import TPWTConfig
 
 from tpwt.control import aftan_snr, calculate_dispersion, collect_ph_amp
-from tpwt.inversion import collect_results, tpwt_iterates, make_pre_files
+from tpwt.inverse import collect_results, tpwt_iterates, make_pre_files
 from tpwt import plotlib as plt
 
 
