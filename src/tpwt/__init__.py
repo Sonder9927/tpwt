@@ -1,7 +1,7 @@
 from tpwt._core import hello_from_rust
 from tpwt.config import TPWTConfig
-from tpwt.inversion import inverse, iterative_inversion, quanlity_control
-from tpwt import tpwtplotlib
+from tpwt.steps import tomography, iterative_inversion, quanlity_control
+from tpwt import plotlib
 
 
 def main() -> None:
@@ -10,8 +10,8 @@ def main() -> None:
 
 __all__ = [
     "TPWTConfig",
+    "tomography",
     "quanlity_control",
     "iterative_inversion",
-    "inverse",
-    "tpwtplotlib",
+    "plotlib",
 ]

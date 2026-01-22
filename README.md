@@ -9,7 +9,7 @@ Use `uv run mkdocs serve` to see docs.
 ```python
 import tpwt
 
-tpwt.inverse("config.toml")
+tpwt.tomography("config.toml")
 ```
 
 ## Data Requrements
