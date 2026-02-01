@@ -1,12 +1,9 @@
-from pathlib import Path
 from typing import Optional
 
-
 from tpwt import TPWTConfig
-
-from tpwt.control import aftan_snr, calculate_dispersion, collect_ph_amp
-from tpwt.inverse import collect_results, tpwt_iterates, make_pre_files
 from tpwt import plotlib as plt
+from tpwt.control import aftan_snr, calculate_dispersions, collect_ph_amp
+from tpwt.inverse import collect_results, make_pre_files, tpwt_iterates
 
 
 def iterative_inversion(cfg: TPWTConfig):
@@ -59,15 +56,10 @@ def quanlity_control(cfg: TPWTConfig):
         tpwt.quanlity_control(cfg)
         ```
     """
-    path_dir = cfg.outpath / "path"
-
-    dispersion_TPWT = cfg.binuse("GDM52_dispersion_TPWT")
-    calculate_dispersion(
-        str(cfg.paths["evt_csv"]),
-        str(cfg.paths["sta_csv"]),
-        path_dir,
-        cfg.get_disps(),
-        dispersion_TPWT,
+    disp_model_path = cfg.paths["utils"] / "RayleighDisp.json"
+    disps_path = cfg.outpath / "disps"
+    calculate_dispersions(
+        cfg.paths["evt_csv"], cfg.paths["sta_csv"], disp_model_path, disps_path
     )
     # aftani_c_pgl_TPWT
     aftani_c_pgl_TPWT = cfg.binuse("aftani_c_pgl_TPWT")
